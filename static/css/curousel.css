@@ -1,0 +1,48 @@
+html body{
+    width: 100%;
+    height: auto;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+    margin-top: 6%;
+}
+.carousel-item{
+    height: 35vw;
+}
+.carousel-item h2{
+    font-weight: 600!important;
+    font-size: 1.9vw!important;
+    color: #000000!important;
+    line-height: 1.2em!important;
+    margin-left: 4%;
+    padding-right: 60%;
+}
+.carousel-indicators [data-bs-target]{
+    display: inline-block;
+    background-color: #3f3f3f !important;
+    text-indent: -9999px !important;
+    border-radius: 7px !important;
+    width:7px !important;
+    height: 7px !important;
+    margin-right: 10px !important;
+    padding: 0 !important;
+    opacity: 0.5 !important;
+    border: 0px solid transparent !important;
+}
+.carousel-indicators .active{
+    background-color: #ff0000 !important;
+}
+.download-btn{
+    color: #FFFFFF!important;
+    border-width: 0px!important;
+    border-radius: 12px;
+    font-size: 1vw !important;
+    font-weight: 700!important;
+    background-color: #ee3235;
+    padding-top: 0.5vw!important;
+    padding-right: 2.5vw!important;
+    padding-bottom: 0.5vw!important;
+    padding-left: 2.5vw!important;
+    margin-top: 1%;
+    text-align: center;
+    margin-left: 4%;
+    z-index: 0;
+  }

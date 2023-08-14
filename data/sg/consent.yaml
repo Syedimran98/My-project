@@ -1,0 +1,15 @@
+---
+items:
+  - title: "Strictly Necessary Cookies"
+    description: "Necessary cookies help make our website usable by enabling basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies. If you disable this cookie, we will not be able to save your preferences. This means that every time you visit this website you will need to enable or disable cookies again."
+    is_functional: false
+    script_file: "ga.js"
+  - title: "Marketing & Third party"
+    description: "Marketing cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third-party advertisers. These cookies can be placed by Scala or third parties."
+    is_functional: false
+    script_file: "crisp.js"
+  - title: "Statistics"
+    description: "Statistical cookies are used to see how users use the website. This information is collected anonymously."
+    is_functional: false
+    script_file: "crisp.js"
+...

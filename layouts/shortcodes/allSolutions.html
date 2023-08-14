@@ -1,0 +1,62 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }}
+  {{ $paragraph := $data.paragraph }}
+  {{ $img := $data.img }}
+  {{ $dwidth := $data.dwidth }}
+  {{ $youtube := $data.youtube }}
+
+  {{ with $paragraph }}
+    <div class="w-100">
+      <div class="contain text-center mx-5 pb-lg-5 pt-md-4">
+        <p>{{ $paragraph }}</p>
+      </div>
+    </div>
+  {{ end }}
+
+  <div class="container my-5 pb-3">
+    <div class="mx-auto">
+      {{ range $item := $data.items }}
+        <div class="row my-5 py-3">
+          <div id="{{ .id }}" class="col-12 col-lg-6 {{ if not $item.youtube }}lazyload{{ end }}">
+            {{ if $item.youtube }}
+              {{ $youtubeHTML := partial "youtube" (dict "id" $item.id "src" $item.src) }}
+              {{ $youtubeHTML | safeHTML }}
+            {{ else }}
+              <video style="content-visibility: auto" class="size lazyload" height="{{ $item.height }}" width="{{ $item.width }}" src="{{ $item.src }}" controls muted></video>
+            {{ end }}
+          </div>
+          <div class="col-12 col-lg-6 px-5 py-3 center">
+            <h2>{{ $item.name }}</h2>
+            <div class="divider my-3 mx-0 center" style="width: {{ $dwidth }}; border-radius: 15px;"></div>
+            <p class="py-3">{{ $item.summary }}</p>
+            <a class="demo-btn text-decoration-none mx-0" href="{{ $btnlink }}">{{ $button }}</a>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <style>
+    p {
+      font-size: 18px !important;
+      font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+      color: #666;
+      font-weight: 500;
+    }
+    @media (max-width: 480px) {
+      p {
+        font-size: 14px !important;
+      }
+      .center {
+        text-align: center;
+        margin: 0.5rem auto !important;
+      }
+      .mob-video {
+        height: 250px !important;
+      }
+    }
+  </style>
+{{ end }}

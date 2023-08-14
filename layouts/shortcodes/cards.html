@@ -1,0 +1,150 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }}
+  {{ $title := $data.title }}
+  {{ $background := $data.background }}
+  {{ $mcard_height := $data.mcard_height }} 
+  {{ $mcard_height1 := $data.mcard_height1 }} 
+  {{ $dcard_height := $data.dcard_height }} 
+  {{ $tcard_height := $data.tcard_height }} 
+  <div class="w-100 py-3 {{ $background }}">
+      <div class="d-none d-lg-block ">
+        {{ with $title }}
+        <div class=" color-scala-section-header text-center fw-bold hfont py-2">{{ $title }}</div>
+        <div class="divider mb-lg-5 mb-md-0 rounded-4 mx-auto"></div>
+        {{ end }}
+        <div class="row d-flex py-5 py-md-3 justify-content-center w-100 gap-5" >
+              {{ range $data.items }}
+                <div class="col-md-6 col-lg-2 card-width">
+                  <a href="{{ .card_link }}" style="text-decoration: none;">
+                  <div class="card p-4 m-3 bg-white rounded-4 w-100" style="border-radius: 20px; box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.3);">
+                    <img class="lazyload" src="{{ .img }}" class="card-img-top" alt="{{ .name }}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ .name }}</h5>
+                      <div class="divider mb-3 mx-0" style="width: 40%; border-radius: 30px;"></div>
+                      <p class="card-text">{{ .summary }}</p>
+                    </div>
+                  </div>
+                  </a>
+                </div>
+              {{ end }}
+        </div>
+    </div>
+
+    <div class="d-lg-none d-md-none">
+      {{ with $title }}
+      <div class=" color-scala-section-header text-center fw-bold hfont py-2">{{ $title }}</div>
+      <div class="divider mb-lg-5 mb-3 mb-md-0 rounded-4 mx-auto"></div>
+      {{ end }}
+      
+      <div id="myCarousel" data-bs-interval="3000"  class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="height:{{ $mcard_height1 }};">
+          {{ $items := $data.items }}
+          {{ range $item := $items }}
+          {{ $status := .status }}
+          {{ with .status  }}
+          <div class="carousel-item {{ $status }}" style="height: 95vw;">
+        {{ else }}
+          <div class="carousel-item"  style="height: 95vw;">
+        {{ end }}
+        <a href="{{ $item.card_link }}" style="text-decoration: none; color: #000000;">
+            <div class="row py-2 py-md-0 w-100 mx-auto" >
+              <div class="col d-flex align-items-stretch justify-content-center">
+                <div class="card bg-white w-75" style="border-radius: 20px; box-shadow: 0px 2px 18px -4px rgba(0,0,0,0.3); padding: 3vw; margin: 3vw;">
+                  <img class="lazyload" src="{{ $item.img }}" class="card-img-top" alt="{{ $item.name }}">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">{{ $item.name }}</h5>
+                    <div class="divider mb-3 mx-0" style="width: 40%; border-radius: 30px; height: 3px;"></div>
+                    <p class="card-text">{{ $item.summary }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          </div>
+          {{ end }}
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+    <div class="row text-center my-4 w-100">
+      <div class="col">
+        {{ with $btnlink }}
+        <a href="{{ $btnlink }}" class="btn download-btn btn-primary">{{ $button }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      $('.carousel').carousel();
+    };
+  </script>
+
+  <style> 
+@media(max-width:980px) and (min-width:480px){
+.card-title{
+    font-weight: 700;
+    min-height: 0vw;
+    color: #000000 !important;
+    font-size: 2vw;
+}
+.card{
+  height: {{ $tcard_height }};
+}
+.card-width{
+  width: 40%;
+}
+.card-text{
+    font-size: 2vw !important;
+    min-height: 0vw;
+    color: #666;
+    line-height: 1.7em;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+}
+}
+@media(min-width:980px){
+.card-title{
+    font-weight: 700;
+    min-height: 0vw;
+    color: #000000 !important;
+    height: 2vw;
+    font-size: 1.4vw;
+}
+.card-width{
+  width: 27%;
+}
+.card-text{
+    font-size: 1.2vw !important;
+    min-height: 0vw;
+    color: #666;
+    line-height: 1.7em;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    height: 8vw;
+}
+.card{
+  height: {{ $dcard_height }};
+}
+}
+.card:hover{
+    transform: scale(1.1) !important; 
+    transition: 0.5s ease !important;
+}
+@media(max-width:480px){
+  .card{
+  height: {{ $mcard_height }};
+}
+}
+
+  </style>
+{{ end }}

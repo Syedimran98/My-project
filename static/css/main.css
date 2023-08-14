@@ -1,0 +1,42 @@
+html body{
+  font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif !important;
+  scroll-behavior: smooth;
+    zoom: 1;
+}
+.font{
+  font-size: clamp(14px, calc(0.875rem + ((1vw - 2.8px) * 0.1829)), 17px);
+  min-height: 0vw;
+  color: #666;
+  font-weight: 500;
+}
+.hfont{
+  font-size: clamp(20px, calc(1.25rem + ((1vw - 2.8px) * 0.6098)), 30px);
+  min-height: 0vw;
+}
+a{
+  text-decoration: none;
+}
+
+.color-scala-grey {
+  color: #666;
+}
+
+.color-scala-red{
+  color: #ee3235;
+}
+
+.color-scala-link{
+  color: #ff4043;
+}
+
+.color-scala-section-header{
+  color: #333;
+}
+
+.divider{
+  content: "";
+  max-width: 100% !important;
+  width: 13%;
+  height: 6px;
+  background-color: #EE3235;
+}

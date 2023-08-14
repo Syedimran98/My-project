@@ -1,0 +1,96 @@
+
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }}
+  {{ $heading := $data.heading }}
+  {{ $dwidth := $data.dwidth }}
+  {{ $dcard_height := $data.dcard_height }}
+  {{ $tcard_height := $data.tcard_height }}
+  {{ $mcard_height := $data.mcard_height }}
+  {{ $mimg_height := $data.mimg_height }}
+  {{ $timg_height := $data.timg_height }}
+  {{ $dimg_height := $data.dimg_height }}
+  {{ $dimg_height := $data.dimg_height }}
+
+  <div class="w-100">
+      {{ with $heading }}
+    <div class="container mt-5 mx-auto">
+          <h3 class="fw-bold text-center" style="font-size: 23px;">{{ $heading }}</h3>
+              <div class="divider mt-3 mb-5 mx-auto" style="width: {{ $dwidth }}"></div>
+      {{ end }}
+      <div class="row d-flex justify-content-center py-4 mx-auto mw-100">
+      {{ range $data.pages }}
+      <div class="my-4 col-lg-4 col-md-6 col-sm-12 align-items-strech" >
+        <a class="resource-library-card" data-bs-toggle="modal" data-bs-target="#popup"  onclick="showPopup('{{ .img }}', '{{ .form_title }}', '{{ .title }}')" style="text-decoration: none;">
+            <div class="card p-4 bg-white" style="width: 90% !important; height: 100%; box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3); border-radius:20px;">
+            <img class="lazyload card-img" style="border-radius:20px;" src="{{ .img }}" class="card-img-top" alt="{{ .name }}">
+                <div class="pt-4 pb-2 title-font" style="color: #333 !important; line-height: 1.2em; font-weight: 600!important;">{{ .name }}</div>
+                <div class="divider rounded-3" style="width: 40% !important; margin-bottom: 5px;"></div>
+                <p style="font-size:  1.1vw !important; color: #666; font-weight: 500;">{{ .summary }}</p>
+            </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "pop-up-new.html" . }}
+  </div>
+  
+  <script>
+
+    function showPopup(imageSource, formTitle, title) {
+          console.log("Clicked");
+          let cardImage = document.getElementById("pdf-card-image");
+          cardImage.src = imageSource;
+          console.log("cardImage: ", cardImage);
+
+          let pdfDesc = document.querySelector(".pdf-description");
+          pdfDesc.innerHTML = title;
+
+          let titleText = document.querySelector(".title-text");
+          titleText.innerHTML = formTitle;
+    };
+  </script>
+
+  <style>
+    @media(max-width:480px){
+      .card{
+        height:{{ $mcard_height }};
+      }
+      .card-img{
+        height: {{ $mimg_height }};
+      }
+      .title-font{
+        font-size: 4vw;
+      }
+    }
+    @media(min-width:480px) and (max-width:980px){
+      .card{
+        height:{{ $tcard_height }};
+      }
+      .card-img{
+        height: {{ $timg_height }};
+      }
+      .title-font{
+        font-size: 2vw;
+      }
+    }
+    @media(min-width:980px){
+      .card{
+        height:{{ $dcard_height }};
+      }
+      .card-img{
+        height: {{ $dimg_height }};
+      }
+      .title-font{
+        font-size: 1.57vw;
+      }
+    }
+    .card:hover{
+        transform: scale(1.1) !important;
+        transition: 0.5s ease !important;
+    }
+  </style>
+{{ end }}

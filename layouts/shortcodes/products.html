@@ -1,0 +1,40 @@
+<!-- 
+    Input
+     url - path to json data structure
+-->
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $title := $data.title }}
+  <div class="w-100 my-5">
+    {{ with $title }}
+    <div class=" color-scala-section-header text-center fw-bold hfont pb-3">{{ $title }}</div>
+    <div class="divider mb-5 mx-auto"></div>
+    {{ end }}
+    <div class="container-md text-center my-5">
+      <div class="row w-100 justify-content-center">
+        {{ range $data.items }}
+          {{ $img := .img }}
+          {{ $name := .name }}
+          {{ $link := .link }}
+          <div class="col-lg-2 col-4">
+            <a href="{{ $link }}" class="text-decoration-none">
+            <img
+              src="{{ $img }}"
+              class="lazyload w-75"
+              alt="{{ $name }}"
+            />
+            <div class="my-3 fw-bold text-secondary font">{{ $name }}</div>
+            </a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <style>
+    .product-font {
+  font-size: clamp(12px, calc(0.75rem + ((1vw - 7.68px) * 0.6944)), 30px);
+  min-height: 0vw;
+}
+  </style>
+{{ end }}

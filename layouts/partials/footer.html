@@ -1,0 +1,328 @@
+<img style="  position: relative; left: 74vw; width: 17%; top: 5vw; z-index: 5;" src="/img/CMS-Lets-talk.webp">
+<footer class="footer pt-lg-5 bg-img">
+    <!--Desktop footer design -->
+<div class="d-none d-lg-block">
+  <div class="footer-container">
+  <div class="container py-3  pr-8 pl-3 mw-100">
+    <div class="row">
+      <div class="col-md-2  bs-linebreak">
+        <div class="footer-compartment">
+      <span style="color: #fff;">My Project</span>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="footer-compartment">
+        <a href="/industries/"><h4>Industries</h4></a>
+        <div class="list-group">
+            <a href="/industries/retail/">Retail</a>
+            <a href="/industries/quick-service-restaurants/">QSR</a>
+            <a href="/industries/banking-and-finance/">Banking</a>
+            <a href="/industries/">More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="footer-compartment">
+        <a href="/case-studies/"><h4>Case Studies</h4></a>
+        <div class="list-group">
+            <a href="#">Wendy’s</a>
+            <a href="#">KIA</a>
+            <a href="#">Carrefour</a>
+            <a href="/case-studies/">More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="footer-compartment">
+        <h4>Solutions</h4>
+        <div class="list-group">
+            <a href="/solutions/#lift_and_learn">Lift & Learn</a>
+            <a href="/solutions/#place_and_learn">Place & Learn</a>
+            <a href="/solutions/#wayfinder">Wayfinding</a>
+            <a href="/solutions/#">More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="footer-compartment">
+        <h4>Resources</h4>
+        <div class="list-group">
+            <a href="#">Blogs</a>
+            <a href="#">Downloads</a>
+            <a href="#">Partners</a>
+            <a href="#">About Us</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<!--Desktop footer design End -->
+<!-- tablet and mobile footer design -->
+<style scoped>
+p {
+    line-height: 1.4 !important;
+}
+.footer-consent{
+  color: #c0c1c3;
+}
+.footer-consent:hover{
+  color: #89898a;
+}
+#consent-notice {
+    padding: 1rem 1rem;
+    display: none;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #222;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#consent-notice span {
+    margin-left: 10rem;
+    width: 100%;
+}
+
+#consent-notice button {
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+    background-color: #ee3235;
+    color: white
+}
+
+#consent-notice span a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+}
+
+#consent-notice button.btn {
+    margin: 2%;
+}
+
+#consent-notice button.btn.manage-consent {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: normal;
+}
+
+#consent-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 999999;
+    overflow: auto;
+    cursor: pointer;
+}
+
+#consent-overlay.active {
+    display: flex;
+}
+
+#consent-overlay>div {
+    background: #f1f1f1;
+    width: 75%;
+    padding: 2.5rem;
+    margin: auto;
+    cursor: initial;
+    border-radius: 5px;
+}
+
+#consent-overlay>div>div>div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+#consent-overlay>div>div>div:last-child {
+    margin: 0;
+}
+
+#consent-overlay h3 {
+    padding-top: 0;
+}
+
+#consent-overlay input {
+    margin-top: 0.3rem;
+}
+
+#consent-overlay label {
+    display: block;
+}
+
+#consent-overlay .btn {
+    margin-right: 0.5rem;
+}
+
+#consent-overlay button.btn.save-consent {
+    background: #ee3235;
+    color: white;
+    font-weight: normal;
+}
+
+#consent-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#consent-btn-holder {
+    display: flex;
+    flex: 0 0 40%;
+}
+
+#consent-text-holder {
+    flex: 0 0 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#scrollable-container {
+    display: block;
+    max-height: 50vh;
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+#inner-button-container {
+    padding-top: 20px;
+    border-top: 2px solid #c9c8c8;
+}
+
+@media (max-width: 767px) {
+    #consent-overlay>div {
+        padding: 1.75rem 1rem;
+    }
+
+    #consent-notice span {
+        display: block;
+        padding-top: 3px;
+        margin-bottom: 1.5rem;
+    }
+
+    #consent-notice button.btn {
+        position: relative;
+        bottom: 4px;
+    }
+}
+
+.toggler {
+    width: 72px;
+    margin: 40px auto;
+}
+
+.toggler input {
+    display: none;
+}
+
+.toggler label {
+    display: block;
+    position: relative;
+    width: 72px;
+    height: 36px;
+    border: 1px solid #d6d6d6;
+    border-radius: 36px;
+    background: #e4e8e8;
+    cursor: pointer;
+}
+
+.toggler label::after {
+    display: block;
+    border-radius: 100%;
+    background-color: #d7062a;
+    content: '';
+    animation-name: toggler-size;
+    animation-duration: 0.15s;
+    animation-timing-function: ease-out;
+    animation-direction: forwards;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+.toggler label::after,
+.toggler label .toggler-on,
+.toggler label .toggler-off {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 26px;
+    height: 26px;
+    transform: translateY(-50%) translateX(-50%);
+    transition: left 0.15s ease-in-out, background-color 0.2s ease-out, width 0.15s ease-in-out, height 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.toggler input:checked+label::after,
+.toggler input:checked+label .toggler-on,
+.toggler input:checked+label .toggler-off {
+    left: 75%;
+}
+
+.toggler input:checked+label::after {
+    background-color: #50ac5d;
+    animation-name: toggler-size2;
+}
+
+.toggler .toggler-on,
+.toggler .toggler-off {
+    opacity: 1;
+    z-index: 2;
+}
+
+.toggler input:checked+label .toggler-off,
+.toggler input:not(:checked)+label .toggler-on {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.toggler .path {
+    fill: none;
+    stroke: #fefefe;
+    stroke-width: 7px;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+}
+
+@keyframes toggler-size {
+
+    0%,
+    100% {
+        width: 26px;
+        height: 26px;
+    }
+
+    50% {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@keyframes toggler-size2 {
+
+    0%,
+    100% {
+        width: 26px;
+        height: 26px;
+    }
+
+    50% {
+        width: 20px;
+        height: 20px;
+    }
+}
+</style>
+</footer>

@@ -1,0 +1,57 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $counter := 0 }}
+  {{ $title := $data.title }} 
+  {{ $items := $data.items }} 
+
+  <div class="container mx-auto w-100 mw-100">
+    <h2 class="fw-bold my-3 py-md-5" style="font-size: 23px; width: 90%;">{{ $title }}</h2>
+    {{ range $index, $element := $data.rows }}
+    {{ $counter = add $counter 1 }}
+    <div class="row tech-style mx-auto {{ if mod $counter 2 }}even{{ else }}odd{{ end }}" style="align-items: center; padding: 1% 0%; width: 100%;">
+        <div class=" col clo-lg-3">
+            <p style="margin: 0; font-weight: 600; color: #666;">{{ $element.p1 }}</p>
+        </div>
+        <div class="col clo-lg-3 text-center">
+            <p style="margin: 0;">{{ $element.p2 }}</p>
+        </div>
+        <div class="col clo-lg-3 text-center">
+            <p style="margin: 0;">{{ $element.p3 }}</p>
+        </div>
+        <div class="col clo-lg-3 text-center">
+            <p style="margin: 0;">{{ $element.p4 }}</p>
+        </div>
+    </div>
+    {{ end }}
+    {{ with $items }}
+    <div class="w-100 mw-100 my-5 mx-auto">
+      <div class="row w-100 d-flex justify-content-center">
+        {{ range $data.items }}
+        <div class="col-4 text-center">
+          <img width="85%" src="{{ .img }}" alt="">
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <style>
+    .even {
+  background-color: #f2f2f4;
+}
+
+.odd {
+  background-color: #ffffff;
+}
+@media(max-width:480px) {
+  .tech-style{
+    font-size: 11px !important;
+    width: 100% !important;
+    line-height: 2em !important;
+  }
+}
+
+  </style>
+  {{ end }}

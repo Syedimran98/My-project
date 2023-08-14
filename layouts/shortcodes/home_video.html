@@ -1,0 +1,29 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $src := $data.src }}
+  {{ $youtube := $data.youtube }}
+<div class="w-100">
+    <div class="text-center my-5">
+        {{ if $youtube }}
+        <iframe class="lazyload px-5 size" src="{{$src}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        {{ else }}
+        <video class="lazyload px-5 size" src="{{$src}}" controls muted></video>
+        {{ end }}
+    </div>
+</div>
+<style>
+    @media (max-width: 980px){
+        .size{
+            height: 50vw; 
+            width: 100vw;
+        }
+    }
+    @media (min-width: 980px){
+        .size{
+            height: 35.5vw; 
+            width: 70vw;
+        }
+    }
+</style>
+{{ end }}

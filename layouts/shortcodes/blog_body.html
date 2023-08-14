@@ -1,0 +1,31 @@
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $heading := $data.heading }}
+  {{ $para1 := $data.para1 }}
+  {{ $para2 := $data.para2 }}
+  {{ $para3 := $data.para3 }}
+  {{ $para4 := $data.para4 }}
+  {{ $img1 := $data.img1 }}
+
+{{ with $heading }}
+<div class="container">
+<h3 class="text-center my-2 mt-5">{{ $heading }}</h3>
+<div class="divider mx-auto mb-4"> </div>
+</div>
+{{ end }}
+<div class="container mw-100" style="width: 90%;">
+  <p class="font">{{ $para1 | safeHTML }}</p>
+  <div class="text-center py-4">
+      <img src="{{ $img1 | safeHTML }}" class="w-50 w-md-100">
+  </div>
+  <p class="font">{{ $para2 | safeHTML }}</p>
+  <p class="font">{{ $para3 | safeHTML }}</p>
+  <p class="font">{{ $para4 | safeHTML }}</p>
+</div>
+<style>
+  a{
+    text-decoration: none;
+  }
+</style>
+{{ end }}

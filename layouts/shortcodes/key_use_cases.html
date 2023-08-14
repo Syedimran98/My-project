@@ -1,0 +1,76 @@
+{{ with .Get "url" }} 
+    {{ $url := . }} 
+    {{ $data := getJSON $url }}
+    {{ $title := $data.title }} 
+    {{ $button := $data.button }} 
+    {{ $btnlink := $data.link }} 
+    {{ $btnwidth := $data.btnwidth }} 
+    {{ $dwidth := $data.dwidth }} 
+
+    <div class="w-100">
+        <div class="container mw-100 px-5" style="background-color: #f4f5f9!important;">
+            <div class="container mt-5">
+                <h3 class="fw-bold text-center pt-5" style="font-size: 30px;">{{ $title }}</h3>
+                <div class="divider mt-3 mb-5 mx-auto"  style="width: {{ $dwidth }}; border-radius:30px;"></div>
+            </div>
+
+            <div class="row justify-content-center gap-5 text-center">
+                {{ range $i, $key := $data.keys }}
+                    {{ $img := $key.img }}
+                    {{ $name := $key.name }}
+                    {{ $altText := $key.altText }}  
+                    {{ $para := $key.para }}
+
+                    {{ if le (len $data.keys) 4 }}
+                        <div class="col-lg-6 py-3 col-md-6 col-sm-6 keywidth">
+                            <img
+                                class="lazyload"
+                                src="{{ $img }}"
+                                class="img-fluid rounded-3"
+                                alt="{{ $name }}"
+                            />
+                            <h3 class="mt-4 fs-5" style="font-weight: 600;">{{ $name }}</h3>
+                            <p class="fs-6 fw-medium color-scala-grey lh-base">{{ $para }}</p>
+                        </div>
+                    {{ else }}
+                        <div class="col-lg-4 py-3 col-md-6 col-sm-6 keywidth">
+                            <img
+                                class="lazyload"
+                                src="{{ $img }}"
+                                class="img-fluid rounded-3"
+                                alt="{{ $name }}"
+                            />
+                            <h3 class="mt-4 fs-5" style="font-weight: 600;">{{ $name }}</h3>
+                            <p class="fs-6 fw-medium color-scala-grey lh-base">{{ $para }}</p>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+
+            <div class="container py-5 mx-auto text-center">
+                <a href="{{ $btnlink }}" class="talktous-btn my-3 text-center m-0">{{ $button }}</a>
+            </div> 
+        </div>
+    </div>
+
+    <style scoped>
+    @media (min-width: 480px) and (max-width: 980px){
+        .keywidth{
+          width: 45%;
+        }
+    }
+    @media (min-width: 980px){
+        .keywidth{
+            width: 30%;
+        }
+    }
+    @media (max-width: 480px){
+        .gap-5{
+            gap:0px !important;
+        }
+        .divider{
+            width:30% !important;
+        }
+    }
+    </style>
+{{ end }}

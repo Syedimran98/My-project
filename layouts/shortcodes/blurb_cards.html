@@ -1,0 +1,163 @@
+{{ with .Get "url" }} 
+{{ $url := . }}
+ {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }} 
+  {{ $title := $data.title }} 
+  {{ $background := $data.background }}
+<div class="w-100 py-3 my-5 {{ $background }}">
+  {{ with $title }}
+  <div class="color-scala-section-header text-center fw-bold hfont py-2">
+    {{ $title }}
+    <div class="divider mb-lg-5 mb-md-0 rounded-4 mx-auto mb-3"></div>
+  </div>
+  {{ end }}
+  <div class="d-none d-md-block d-lg-block">
+    <div class="row d-flex justify-content-around py-5 px-lg-5 py-md-0 w-100 m-0">
+      {{ range $data.items }}
+      <div
+        class="col-lg-4 col-md-4 align-items-strech d-flex justify-content-center blurb_card_width">
+        <a href="{{ .card_link }}">
+          <div id="card_design"
+            class="card p-lg-4 p-md-2 m-3 bg-white"
+            style="
+              width: 90% !important;
+              box-shadow: 0px 2px 18px -4px rgba(0, 0, 0, 0.3); border-radius: 20px;
+            "
+          >
+            <img
+              class="lazyload w-100"
+              src="{{ .img }}"
+              class="card-img-top"
+              alt="{{ .name }}"
+              style="border-radius: 20px;"
+            />
+            <div class="card-body">
+              <h5 class="card-title" style="height: 1.5vw">{{ .name }}</h5>
+              <p class="card-text color-scala-grey">{{ .summary }}</p>
+              <a
+                href="{{ .link }}"
+                class="text-decoration-none text-danger"
+                style="font-size: 1.1vw"
+                >Learn More >></a
+              >
+            </div>
+          </div>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+    <div class="row text-center my-4 w-100">
+      <div class="col">
+        {{ with $btnlink }}
+        <a href="{{ $btnlink }}" class="btn download-btn btn-primary"
+          >{{ $button }}</a
+        >
+        {{ end }}
+      </div>
+    </div>
+  </div>
+
+  <div class="d-block d-md-none d-lg-none">
+    <div id="SolutionMobileIndicator" class="carousel slide px-4 w-100" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {{ range $data.mobile }}
+          {{ $imgsrc := .imgsrc }}
+          {{ $imgalt := .imgalt }}
+          {{ $text := .text }}
+          {{ $atagtxt := .atagtxt }}
+          {{ $ataglink := .ataglink }}
+          {{ $status := .status }}
+          {{ $dataslideto := .dataslideto }}
+          {{ $status := .status }}
+          {{ with .status  }}
+            <li data-target="#SolutionMobileIndicator" data-slide-to="{{ $dataslideto }}" class="{{ $status }}"></li>
+          {{ else }}
+            <li data-target="#SolutionMobileIndicator" data-slide-to="{{ $dataslideto }}"></li>
+          {{ end }}
+        {{ end }}
+      </ol>
+      <div class="carousel-inner rounded-5" style="height: 80vw; border-radius: 20px;">
+        {{ range $data.mobile }}
+          {{ $imgsrc := .imgsrc }}
+          {{ $imgalt := .imgalt }}
+          {{ $text := .text }}
+          {{ $atagtxt := .atagtxt }}
+          {{ $ataglink := .ataglink }}
+          {{ $status := .status }}
+          {{ $dataslideto := .dataslideto }}
+          {{ with .status  }}
+            <div class="carousel-item {{ $status }}">
+          {{ else }}
+            <div class="carousel-item">
+          {{ end }}
+          <a href="{{ $ataglink }}">
+            <img class="d-block w-100 rounded-5" src="{{ $imgsrc }}" alt="{{ $imgalt }}" style="height: 80vw; border-radius: 20px;" />
+            <div class="card-img-overlay" style="background-color: rgba(0,0,0,.3); height: 80vw;"></div>
+            <div class="solution-title">
+              <div>{{ $text }}</div>
+            </div>
+          </a>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+
+    {{ with $button }}
+    <div class="row  text-center w-100">
+      <div class="col py-5">
+        <a href="{{ $btnlink }}" class="btn download-btn btn-primary m-0">{{ $button }}</a>
+    </div>
+    </div>
+    {{ end }}
+  </div>
+ </div>
+</div>
+
+<style>
+  h5 {
+    font-size: 1.5vw;
+    font-weight: 700;
+    min-height: 0vw;
+    color: #ee3235 !important;
+  }
+  .card:hover {
+    transform: scale(1.1) !important;
+    transition: 0.5s ease !important;
+  }
+  @media(max-width: 980px){
+   .card-text{
+    height: 15vw;
+   }
+   #card_design p{
+    font-size: 1.6vw;
+   }
+   .solution-title{
+    position: absolute !important;
+    text-align: left !important;
+    top: 180% !important;
+    left: 5%;
+    right: 5%;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+   }
+  }
+  @media(min-width: 980px){
+   .card-text{
+    height: 9vw;
+   }
+   #card_design p{
+    font-size: 1.2vw;
+   }
+   .blurb_card_width{
+    width: 30%;
+   }
+  }
+  @media(max-width: 980px){
+    .blurb_card_width{
+    width: 33%;
+   }
+  }
+</style>
+{{ end }}

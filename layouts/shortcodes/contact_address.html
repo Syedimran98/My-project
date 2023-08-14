@@ -1,0 +1,200 @@
+{{ with .Get "url" }} 
+{{ $url := . }}
+{{ $data := getJSON $url }}
+
+<div class="container text-center my-5">
+    <h3 class="fw-bold text-center" style="font-size: 23px;">Global Offices</h3>
+    <div class="divider mt-3 mb-5 mx-auto rounded" style="width: 5%;"></div>
+</div>
+
+<div class="row">
+    <a id="apac-selector" class="col multi-btn btn-primary mx-5 multitab-btn active_cls text-decoration-none text-center" style="cursor: pointer;">Asia-Pacific(APAC)</a>
+    <a id="america-selector" class="col multi-btn btn-primary mx-5 multitab-btn text-decoration-none text-center" style="cursor: pointer;">America</a>
+    <a id="europe-selector" class="col multi-btn btn-primary mx-5 multitab-btn text-decoration-none text-center" style="cursor: pointer;">Europe</a>
+</div>
+
+<div id="apac" class="apac">
+    <div class="row w-100 px-5">
+        {{ range $index, $item := $data.apac }}
+            <div class="col-lg-4 py-3 px-5">
+                <div class="fw-bold">{{ $item.region }}</div>
+                <div class="font" style="padding-right: 7vw;">{{ $item.apac_address }}</div>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+
+<div id="america" class="america row">
+    <div class="row w-100 px-5">
+        {{ range $index, $item := $data.america }}
+            <div class="col-lg-4 py-3 px-5">
+                <div class="fw-bold">{{ $item.region }}</div>
+                <div class="font" style="padding-right: 7vw;">{{ $item.america_address }}</div>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+<div id="europe" class="europe row">
+    <div class="row w-100 px-5">
+        {{ range $index, $item := $data.europe }}
+            <div class="col-lg-4 py-3 px-5">
+                <div class="fw-bold">{{ $item.region }}</div>
+                <div class="font" style="padding-right: 7vw;">{{ $item.europe_address }}</div>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+<div class="container text-center my-5">
+    <h3 class="fw-bold text-center" style="font-size: 23px;">Customer Support</h3>
+    <div class="divider mt-3 mb-5 mx-auto rounded" style="width: 10%;"></div>
+</div>
+
+<div id="apac-support" class="apac row">
+    <div class="row w-100 px-5">
+        <div class="row w-100 px-5">
+            {{ range $index, $item := $data.apac_support }}
+                <div class="col-lg-4 py-3 px-5">
+                    <div class="fw-bold">{{ $item.region }}</div>
+                    <div class="font" style="padding-right: 7vw;">{{ $item.apac_support_address }}</div>
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<div id="america-support" class="america row">
+    <div class="row w-100 px-5">
+        {{ range $index, $item := $data.america_support }}
+            <div class="col-lg-4 py-3 px-5">
+                <div class="fw-bold">{{ $item.region }}</div>
+                <div class="font" style="padding-right: 7vw;">{{ $item.america_support_address }}</div>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+<div id="europe-support" class="europe row">
+    <div class="row w-100 px-5">
+        {{ range $index, $item := $data.europe_support }}
+            <div class="col-lg-4 py-3 px-5">
+                <div class="fw-bold">{{ $item.region }}</div>
+                <div class="font" style="padding-right: 7vw;">{{ $item.europe_support_address }}</div>
+            </div>
+        {{ end }}
+    </div>
+</div>
+
+<script>
+  var apac = document.getElementById('apac-selector');
+  var america = document.getElementById('america-selector');
+  var europe = document.getElementById('europe-selector');
+  
+  var apacRow = document.getElementById('apac');
+  var americaRow = document.getElementById('america');
+  var europeRow = document.getElementById('europe');
+  var apacSupport = document.getElementById('apac-support');
+  var americaSupport = document.getElementById('america-support');
+  var europeSupport = document.getElementById('europe-support');
+
+    apac.addEventListener('click', function addActiveClass(event) {
+  apac.classList.add("active_cls");
+  america.classList.remove("active_cls");
+  europe.classList.remove("active_cls");
+  $('#apac-selector h4').css('color', 'white');
+  $('#america-selector h4').css('color', 'black');
+  $('#europe-selector h4').css('color', 'black');
+  apacRow.style.display = "block";
+  americaRow.style.display = "none";
+  europeRow.style.display = "none";
+  apacSupport.style.display = "block";
+  americaSupport.style.display = "none";
+  europeSupport.style.display = "none";
+});
+  america.addEventListener('click', function addActiveClass() {
+  apac.classList.remove("active_cls");
+  america.classList.add("active_cls");
+  europe.classList.remove("active_cls");
+  $('#apac-selector h4').css('color', 'black');
+  $('#america-selector h4').css('color', 'white');
+  $('#europe-selector h4').css('color', 'black');
+  apacRow.style.display = "none";
+  americaRow.style.display = "block";
+  europeRow.style.display = "none";
+  apacSupport.style.display = "none";
+  americaSupport.style.display = "block";
+  europeSupport.style.display = "none";
+});
+  europe.addEventListener('click', function addActiveClass() {
+  apac.classList.remove("active_cls");
+  america.classList.remove("active_cls");
+  europe.classList.add("active_cls");
+  $('#apac-selector h4').css('color', 'black');
+  $('#america-selector h4').css('color', 'black');
+  $('#europe-selector h4').css('color', 'white');
+  apacRow.style.display = "none";
+  americaRow.style.display = "none";
+  europeRow.style.display = "block";
+  apacSupport.style.display = "none";
+  americaSupport.style.display = "none";
+  europeSupport.style.display = "block";
+});
+
+</script>
+<style>
+  .active_cls{
+    background-color: #ee3236 !important;
+    color: white !important;
+  }
+
+  #apac-selector h4{
+    color: white;
+  }
+  #apac-selector:hover{
+    cursor: pointer;
+  }
+  #america-selector:hover{
+    cursor: pointer;
+  }
+  #europe-selector:hover{
+    cursor: pointer;
+  }
+  #apac{
+    display:block;
+  }
+  #america{
+    display:none;
+  }
+  #europe{
+    display:none;
+  }
+  #apac-support{
+    display:block;
+  }
+  #america-support{
+    display:none;
+  }
+  #europe-support{
+    display:none;
+  }
+  .multitab-btn{
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+    border-width: 0px!important;
+    border-radius: 9rem;
+    font-size: 1vw;
+    font-weight: 700!important;
+    background-color: #f2eff4;
+    color: #000000;
+    padding-top: 0.6vw!important;
+    padding-bottom: 0.6vw!important;
+    margin: 2% 12%;
+  }
+  .btn-primary:hover, .btn-primary:active{
+    background-color: #db453f;
+    color: #FFFFFF!important;
+    border-color: #db453f !important;
+  }
+</style>
+{{ end }}

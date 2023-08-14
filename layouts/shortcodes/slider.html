@@ -1,0 +1,289 @@
+
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  
+<!-- <div class="d-md-none d-lg-none">
+  <div id="mobileIndicator" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      {{ range $data.mobile }}
+      {{ $imgsrc := .imgsrc }}
+      {{ $imgalt := .imgalt }}
+      {{ $text := .text }}
+      {{ $atagtxt := .atagtxt }}
+      {{ $ataglink := .ataglink }}
+      {{ $status := .status }}
+      {{ $dataslideto := .dataslideto }}
+      {{ $status := .status }}
+      {{ with .status  }}
+      <li data-bs-target="#mobileIndicator" data-bs-slide-to="{{ $dataslideto }}" class="{{ $status }}"></li>
+      {{ else }}
+      <li data-bs-target="#mobileIndicator" data-bs-slide-to="{{ $dataslideto }}"></li>
+      {{ end }}
+      {{ end }}
+    </ol>
+      <div class="carousel-inner" style="height: 118vw;" >
+        {{ range $data.mobile }}
+        {{ $imgsrc := .imgsrc }}
+        {{ $imgalt := .imgalt }}
+        {{ $text := .text }}
+        {{ $atagtxt := .atagtxt }}
+        {{ $ataglink := .ataglink }}
+        {{ $status := .status }}
+        {{ $dataslideto := .dataslideto }}
+        {{ $popuplink := .pop_up_link }}
+        {{ with .status  }}
+        <div class="carousel-item {{ $status }}">
+          {{ else }}
+          <div class="carousel-item">
+          {{ end }}
+          <img class="d-block w-100" src="{{ $imgsrc }}" alt="{{ $imgalt }}" style="height: 110vw;">
+            <div id="banner-title" class="carousel-caption">
+              <h2 class="d-flex justify-content-center mx-auto w-100 py-1">{{ $text }}</h2>
+              <a data-bs-toggle="modal" data-bs-target="{{ $popuplink }}" class="btn download-btn btn-primary"> {{ $atagtxt }}</a>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+  </div> -->
+
+  <div class="d-md-none d-lg-none">
+    <div id="mobileIndicator" class="carousel slide" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+        {{ range $data.mobile }}
+          {{ $imgsrc := .imgsrc }}
+          {{ $imgalt := .imgalt }}
+          {{ $text := .text }}
+          {{ $atagtxt := .atagtxt }}
+          {{ $ataglink := .ataglink }}
+          {{ $status := .status }}
+          {{ $dataslideto := .dataslideto }}
+          {{ $status := .status }}
+          {{ with .status  }}
+            <li data-bs-target="#mobileIndicator" data-bs-slide-to="{{ $dataslideto }}" class="{{ $status }}"></li>
+          {{ else }}
+            <li data-bs-target="#mobileIndicator" data-bs-slide-to="{{ $dataslideto }}"></li>
+          {{ end }}
+        {{ end }}
+      </ol>
+      <div class="carousel-inner" style="height: 110vw;" >
+        {{ range $data.mobile }}
+          {{ $imgsrc := .imgsrc }}
+          {{ $imgalt := .imgalt }}
+          {{ $text := .text }}
+          {{ $atagtxt := .atagtxt }}
+          {{ $ataglink := .ataglink }}
+          {{ $status := .status }}
+          {{ $dataslideto := .dataslideto }}
+          {{ $popuplink := .pop_up_link }}
+          {{ with .status  }}
+            <div class="carousel-item {{ $status }}">
+          {{ else }}
+            <div class="carousel-item">
+          {{ end }}
+            <img class="d-block w-100" src="{{ $imgsrc }}" alt="{{ $imgalt }}" style="height: 110vw;" />
+            <div id="banner-title" class="carousel-caption text-left pr-60">
+              <h2 class="d-flex justify-content-center mx-auto w-100 py-1">{{ $text }}</h2>
+              <a data-bs-toggle="modal" data-bs-target="{{ $popuplink }}" class="btn download-btn btn-primary"> {{ $atagtxt }}</a>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    </div>
+  
+<div class="d-none d-md-block d-lg-none">
+  <div id="tabletIndicator" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      {{ range $data.mobile }}
+        {{ $imgsrc := .imgsrc }}
+        {{ $imgalt := .imgalt }}
+        {{ $text := .text }}
+        {{ $atagtxt := .atagtxt }}
+        {{ $ataglink := .ataglink }}
+        {{ $status := .status }}
+        {{ $dataslideto := .dataslideto }}
+        {{ $status := .status }}
+        {{ with .status  }}
+          <li data-bs-target="#tabletIndicator" data-bs-slide-to="{{ $dataslideto }}" class="{{ $status }}"></li>
+        {{ else }}
+          <li data-bs-target="#tabletIndicator" data-bs-slide-to="{{ $dataslideto }}"></li>
+        {{ end }}
+      {{ end }}
+    </ol>
+    <div class="carousel-inner" style="height: 110vw;" >
+      {{ range $data.mobile }}
+        {{ $imgsrc := .imgsrc }}
+        {{ $imgalt := .imgalt }}
+        {{ $text := .text }}
+        {{ $atagtxt := .atagtxt }}
+        {{ $ataglink := .ataglink }}
+        {{ $status := .status }}
+        {{ $dataslideto := .dataslideto }}
+        {{ $popuplink := .pop_up_link }}
+        {{ with .status  }}
+          <div class="carousel-item {{ $status }}">
+        {{ else }}
+          <div class="carousel-item">
+        {{ end }}
+          <img class="d-block w-100" src="{{ $imgsrc }}" alt="{{ $imgalt }}" style="height: 110vw;" />
+          <div id="banner-title" class="carousel-caption text-left pr-60">
+            <h2 class="d-flex justify-content-center pb-1">{{ $text }}</h2>
+            <a class="btn download-btn btn-primary border-none" data-bs-toggle="modal" data-bs-target="{{ $popuplink }}" style="width: 55% !important;"> {{ $atagtxt }}</a>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+  </div>
+
+<div class="d-none d-lg-block" style="margin-top: 6% !important;">
+  <div id="desktopIndicator" class="carousel slide" data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+      {{ range $data.desktop }}
+        {{ $imgsrc := .imgsrc }}
+        {{ $imgalt := .imgalt }}
+        {{ $text := .text }}
+        {{ $atagtxt := .atagtxt }}
+        {{ $ataglink := .ataglink }}
+        {{ $status := .status }}
+        {{ $dataslideto := .dataslideto }}
+        {{ $status := .status }}
+        {{ with .status  }}
+          <li data-bs-target="#desktopIndicator" data-bs-slide-to="{{ $dataslideto }}" class="{{ $status }}"></li>
+        {{ else }}
+          <li data-bs-target="#desktopIndicator" data-bs-slide-to="{{ $dataslideto }}"></li>
+        {{ end }}
+      {{ end }}
+    </ol>
+    <div class="carousel-inner">
+      {{ range $data.desktop }}
+        {{ $imgsrc := .imgsrc }}
+        {{ $imgalt := .imgalt }}
+        {{ $text := .text }}
+        {{ $atagtxt := .atagtxt }}
+        {{ $ataglink := .ataglink }}
+        {{ $status := .status }}
+        {{ $dataslideto := .dataslideto }}
+         {{ $popuplink := .pop_up_link }}
+        {{ with .status  }}
+          <div class="carousel-item {{ $status }}">
+        {{ else }}
+          <div class="carousel-item">
+        {{ end }}
+          <img class="d-block w-100" src="{{ $imgsrc }}" alt="{{ $imgalt }}" />
+          <div id="banner-title" class="carousel-caption d-none d-md-block text-left pr-60">
+            <h2>{{ $text }}</h2>
+            <a  class="btn download-btn btn-primary" data-bs-toggle="modal" data-bs-target="{{ $popuplink }}"> {{ $atagtxt }}</a>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+  </div>
+
+  
+<style>
+  @media (max-width:480px){
+    .carousel-indicators {
+      padding-bottom: -1rem !important;
+    }
+    .carousel-caption {
+        position: absolute !important;
+        text-align: center !important;
+        top: 200% !important;
+        left: 5%;
+        right: 5%;
+      }
+      .download-btn{
+        position: relative;
+        color: #FFFFFF!important;
+        border-width: 0px!important;
+        border-radius: 12px;
+        font-size: 3vw !important;
+        font-weight: 700!important;
+        background-color: #ee3235;
+        padding-top: 2vw!important;
+        padding-right: 6vw!important;
+        padding-bottom: 2vw !important;
+        padding-left: 6vw!important;
+        margin: 0px!important;
+        width: 50% !important;
+
+      }
+      .carousel-item h2{
+        font-size: 5vw!important;
+        color: #000000!important;
+        margin-left: 0px !important;
+        padding-right: 0px !important;
+    }
+  }
+  @media (min-width:480px) and (max-width:980px){
+    .carousel-caption {
+        position: absolute !important;
+        transform: translateY(-50%) !important;
+        text-align: center !important;
+        top: 220% !important;
+      }
+      .download-btn{
+        position: relative;
+        color: #FFFFFF!important;
+        border-width: 0px!important;
+        border-radius: 12px;
+        font-size: 1.8vw !important;
+        font-weight: 700!important;
+        background-color: #ee3235;
+        padding-top: 1.5vw!important;
+        padding-right: 6vw!important;
+        padding-bottom: 1.5vw !important;
+        padding-left: 6vw!important;
+        margin: 0px!important;
+        width: 38% !important;
+      }
+      .carousel-item h2{
+        font-size: 4vw!important;
+        color: #000000!important;
+        margin-left: 0px !important;
+        padding-right: 0px !important;
+    }
+  }
+  @media (min-width:980px){
+    .carousel-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: left;
+      }
+      .download-btn{
+        color: #FFFFFF!important;
+        border-width: 0px!important;
+        border-radius: 12px;
+        font-size: 1vw !important;
+        font-weight: 700!important;
+        background-color: #ee3235;
+        padding-top: 0.5vw!important;
+        padding-right: 2.5vw!important;
+        padding-bottom: 0.5vw!important;
+        padding-left: 2.5vw!important;
+        margin-top: 1%;
+        text-align: center;
+        margin-left: 4%;
+        z-index: 0;
+      }
+  }
+ 
+  p {
+      font-size: 17px;
+      align-items: center;
+  }
+  .box a {
+      display: inline-block;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 3px;
+  }
+</style>
+{{ end }}

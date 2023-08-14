@@ -1,0 +1,152 @@
+{{ with .Get "url" }} 
+{{ $url := . }} 
+{{ $data := getJSON $url }}
+{{ $title := $data.title }} 
+{{ $button := $data.button }} 
+{{ $btnlink := $data.link }} 
+{{ $btnwidth := $data.btnwidth }} 
+
+<div class="w-100">
+    <div class="container mw-100 px-4" style="background-color: #f4f5f9!important;">
+        <div class="container mt-5">
+            <h2 class="text-center pt-5" style="font-size: clamp(25px, calc(0.875rem + ((1vw - 2.8px) * 0.1829)), 26px) !important;; font-weight: 600;">{{ $title }}</h2>
+            <div class="divider mt-3 mb-5 mx-auto"></div>
+        </div>
+
+        <div class="mobile">
+            <div class="row px-lg-5">
+                {{ range $data.keys }}
+                {{ $Number := .Number }}
+                {{ $name := .name }}
+                {{ $altText := .altText }}  
+                {{ $para := .para }}   
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="fw-bold industry-number" style="color: #a0a1a7; font-size: 35px!important;">{{ $Number }}</h3>
+                    <h3 class="fs-5 fw-bold industry-title">{{ $name }}</h3>
+                    <p class="fs-6 fw-medium color-scala-grey lh-base industry-para">{{ $para }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+            
+        <div class="desktop tab mx-auto">
+                {{ range $data.keys }}
+                {{ $Number := .Number }}
+                {{ $name := .name }}
+                {{ $altText := .altText }}  
+                {{ $para := .para }}   
+                <div class="px-4">
+                    <h3 class="fw-bold industry-number" style="color: #a0a1a7; font-size: 35px!important;">{{ $Number }}</h3>
+                    <h3 class="fs-5 fw-bold industry-title" style="font-size: clamp(20px, calc(0.875rem + ((1vw - 2.8px) * 0.1829)), 20px) !important;">{{ $name }}</h3>
+                    <p class="fs-6 fw-medium color-scala-grey lh-base industry-para" style="font-size: clamp(14px, calc(0.875rem + ((1vw - 2.8px) * 0.1829)), 17px) !important;">{{ $para }}</p>
+                </div>
+                {{ end }}
+        </div>
+
+        {{ with $button }}
+        <div class="container pb-5 mx-auto text-center">
+            <a href="{{ $btnlink }}" class="talktous-btn my-3 text-center m-0">{{ $button }}</a>
+        </div> 
+        {{ end }}
+    </div>
+</div>
+
+<style>
+    @media (min-width: 480px) and (max-width: 980px){
+        .industry-number {
+            color: #a0a1a7;
+            font-weight: bold;
+            font-size: 35px!important;
+        }
+        .industry-title {
+            position: relative;
+            top: -43px;
+            left: 60px;
+            font-weight: bold;
+            width: calc(100% - 110px);
+        }
+        .industry-para{
+            color: #52555c;
+            font-size: 17px!important;
+            position: relative;
+            top: -35px;
+            left: 60px;
+            width: calc(100% - 70px);
+        }
+        .tab{
+            display: none !important;
+        }
+    }
+    @media (min-width: 980px){
+        .industry-number {
+            color: #a0a1a7;
+            font-weight: bold;
+            font-size: 35px!important;
+        }
+        .industry-title {
+            position: relative;
+            font-size: 20px!important;
+            top: -35px;
+            left: 60px;
+            font-weight: bold;
+            width: calc(100% - 110px);
+        }
+        .industry-para{
+            color: #52555c;
+            font-size: 17px !important;
+            position: relative;
+            top: -35px;
+            left: 60px;
+            font-weight: 500;
+            width: calc(100% - 70px);
+        }
+        .desktop{
+            display: none !important;
+        }
+    }
+    @media (max-width: 480px){
+        .industry-number {
+            color: #a0a1a7;
+            font-weight: bold;
+            font-size: 35px!important;
+        }
+        .industry-title {
+            position: relative;
+            font-size: 20px!important;
+            top: -40px;
+            left: 60px;
+            font-weight: bold;
+            width: calc(100% - 110px);
+        }
+        .industry-para{
+            color: #52555c;
+            position: relative;
+            top: -40px;
+            left: 60px;
+            width: calc(100% - 70px);
+        }
+        .mobile{
+            display: none !important;
+        }
+        .h2{
+            font-size: 20px !important;
+        }
+    }
+    .talktous-btn {
+    color: #FFFFFF!important;
+    border-width: 0px!important;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700!important;
+    background-color: #ee3235;
+    padding-top: 10px!important;
+    padding-right: 50px!important;
+    padding-bottom: 10px!important;
+    padding-left: 50px!important;
+    margin-top: 1%;
+    text-align: center;
+    text-decoration: none;
+}
+</style>
+{{ end }}
+

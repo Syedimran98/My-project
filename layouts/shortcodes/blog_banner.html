@@ -1,0 +1,62 @@
+{{ $img := .Get "imgsrc" }}
+{{ $image := .Get "mImgsrc" }}
+{{ $bannerTitle := .Get "bannerTitle" }}
+{{ $bannerSubtitle := .Get "bannerSubtitle" }}
+
+  <style>
+    .bg-image {
+      position: absolute; /* Optional: Change as needed */
+      height:35vw;
+      z-index: 2;
+    }
+    .download-btn{
+      width: 20%;
+    }
+  </style>  
+  <div class="w-100 d-none d-lg-block mb-5" style="margin-top: 6%;">
+      <img class="lazyload bg-image w-100" src="{{ $img }}" alt="">
+      <div class="container d-flex align-items-center" style="height: 35vw; z-index: 3; position: relative;">
+        <div class="row">
+          <div class="col-md-12" style="padding-right:15%">
+            <h1 class="display-5 fw-bold" style="font-size: 2vw;">{{ $bannerTitle }}</h1>
+            <p class="col p-0" style="font-size: 1.2vw !important; line-height: 1.2em; color: #666; font-weight: 500;">{{ $bannerSubtitle }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="w-100 d-lg-none mb-4">
+      <img class="lazyload w-100" src="{{ $image }}">
+      {{ with $bannerTitle }}
+            <h1 class="fw-bold text-center mt-4">{{ $bannerTitle }}</h1>
+            <p class="text-center mx-3 text-secondary fw-bold">{{ $bannerSubtitle }}</p>
+            <div class="divider mx-auto" style="border-radius: 20px;"></div>
+      {{ end }}
+    </div>
+
+    <style scoped>
+      @media (min-width:480px) and (max-width:980px){
+        h1{
+          font-size: 30px !important;
+        }
+        p{
+          font-size: 14px !important;
+        }
+      }
+      @media(max-width:980px){
+        .demo-btn{
+          border-width: 0px !important;
+          border-radius: 12px;
+          font-size: 3vw;
+          font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif !important;
+          font-weight: 700 !important;
+          background-color: #ee3235;
+          padding-top: 10px !important;
+          padding-right: 30px !important;
+          padding-bottom: 10px !important;
+          padding-left: 30px !important;
+          color: #fff !important;
+          text-decoration: none;
+        }
+      }
+    </style>

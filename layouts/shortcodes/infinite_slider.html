@@ -1,0 +1,123 @@
+<div class="logos-carousel">
+  <div class="logos-slide">
+    <img src="/img/about-us/Stratacache-icon.webp" />
+    <img src="/img/about-us/prn-icon.webp" />
+    <img src="/img/about-us/superlumin-icon.webp" />
+    <img src="/img/about-us/optica-icon.webp" />
+    <img src="/img/about-us/sys-icon.webp" />
+    <img src="/img/about-us/carmanah-icon.webp" />
+    <img src="/img/about-us/x2o-icon.webp" />
+    <img src="/img/about-us/walkbase-icon.webp" />
+    <img src="/img/about-us/idklic-icon.webp" />
+    <!-- Duplicate the images for infinite sliding -->
+    <img src="/img/about-us/Stratacache-icon.webp" />
+    <img src="/img/about-us/prn-icon.webp" />
+    <img src="/img/about-us/superlumin-icon.webp" />
+    <img src="/img/about-us/optica-icon.webp" />
+    <img src="/img/about-us/sys-icon.webp" />
+    <img src="/img/about-us/carmanah-icon.webp" />
+    <img src="/img/about-us/x2o-icon.webp" />
+    <img src="/img/about-us/walkbase-icon.webp" />
+    <img src="/img/about-us/idklic-icon.webp" />
+  </div>
+  <a class="carousel-control-prev"  role="button">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" role="button">
+    <span class="carousel-control-next-icon"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<style>
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos-carousel {
+    overflow: hidden;
+    padding: 60px 0;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 55s slide infinite linear;
+  }
+  .logos-slide:hover {
+    animation-play-state: paused;
+  }
+  .logos-slide {
+    display: inline-block;
+    animation: 55s slide infinite linear;
+  }
+  
+  .logos-slide img {
+    height: 100px;
+    margin: 0 20px;
+  }
+  .carousel-control-prev-icon{
+    font-size: 53px;
+    width: 53px;
+    height: 53px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: fixed;
+    color: #dc3232;
+    display: none;
+    cursor: pointer;
+    font-size: 53px;
+  }
+  
+  .carousel-control-prev {
+    left: 5px;
+  }
+  .carousel-control-prev-icon{
+    position: fixed;
+    color: red;
+  }
+  
+  .carousel-control-next {
+    right: 5px;
+  }
+  
+  .logos-carousel:hover .carousel-control-prev,
+  .logos-carousel:hover .carousel-control-next {
+    display: block;
+  }
+  </style>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const prevButton = document.querySelector(".carousel-control-prev");
+      const nextButton = document.querySelector(".carousel-control-next");
+      const nextIcon = document.querySelector(".carousel-control-next-icon");
+      const logosSlide = document.querySelector(".logos-slide");
+      const logosCarousel = document.querySelector(".logos-carousel");
+    
+      prevButton.addEventListener("click", function() {
+        logosCarousel.scrollBy({
+          left: -200,
+          behavior: "smooth"
+        });
+      });
+    
+      nextButton.addEventListener("click", function() {
+        logosCarousel.scrollBy({
+          left: 200,
+          behavior: "smooth"
+        });
+      });
+    });
+    </script>
+    
+  

@@ -1,0 +1,57 @@
+<script>
+  $( document ).ready(function() {
+    const subSiteData = [ 
+                          {originalLocale: 'sg',  countryName: 'Singapore', websitePath: '/sg/', autoRedirect: true},
+                          {originalLocale:'jp',  countryName:"Japan","websitePath":"/jp/", autoRedirect:true},
+                          {originalLocale: 'in',  countryName: 'India', websitePath: '/in/', autoRedirect: true},
+                          {originalLocale: 'au', countryName: 'Australia', websitePath: '/au/', autoRedirect: true},
+                          {originalLocale: 'au',  countryName: 'New Zealand', websitePath: '/au/', autoRedirect: true},         
+                          {originalLocale: 'sg',  countryName: 'Malaysia', websitePath: '/sg/', autoRedirect: true},
+                          {originalLocale: 'sg',  countryName: 'Indonesia', websitePath: '/sg/', autoRedirect: true},
+                           {originalLocale: 'sg',  countryName: 'Vietnam', websitePath: '/sg/', autoRedirect: true},
+                           {originalLocale: 'sg',  countryName: 'Philippines', websitePath: '/sg/', autoRedirect: true},
+                           {originalLocale: 'sg',  countryName: 'Thailand', websitePath: '/sg/', autoRedirect: true},
+                           {originalLocale: 'sg',  countryName: 'Cambodia', websitePath: '/sg/', autoRedirect: true},
+                           {originalLocale: 'sg',  countryName: 'China', websitePath: '/sg/', autoRedirect: true},
+      
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Mexico', websitePath: '/mx/', autoRedirect: true},
+      {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Chile', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Colombia', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Argentina', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Equador', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Guatemala', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Puerto Rico', websitePath: '/mx/', autoRedirect: true},
+        {originalLocale: 'mx', originCurrent:'mx',  countryName: 'Peru', websitePath: '/mx/', autoRedirect: true},
+                         
+                        ]
+    
+    $(".cookie-language-class").click(function() {
+      let idvalue = $(this).attr('id')
+      let splitid = idvalue.split('-')
+      let countryName = ''
+      for(let i = 0; i < splitid.length-1; i++ ) {
+        countryName += capitalizeFirstLetter(splitid[i])+' '
+      }
+      countryName = countryName.trim()
+      for(let i = 0; i < subSiteData.length; i++) {
+        if(subSiteData[i].countryName.toLowerCase() == countryName.toLowerCase()) {
+          let cookieVal = encodeURIComponent(JSON.stringify(subSiteData[i]))
+          setCookie('scala-language-preference', cookieVal, 365)
+          window.location.href = subSiteData[i].websitePath
+        }
+      }
+      
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      
+      function capitalizeFirstLetter(val) {
+        return val.charAt(0).toUpperCase() + val.slice(1);
+      }
+    })
+});
+  
+</script>

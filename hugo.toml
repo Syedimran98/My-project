@@ -1,0 +1,36 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Home'
+
+Content-Encoding = 'gzip'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+paginate = 6 
+
+[Params]
+  # to disable Search engines from indexing or following the site.
+  robotsTags = 'noindex,nofollow'
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = false
+    disable = false
+    respectDoNotTrack = false
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = false
+    simple = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = false

@@ -1,0 +1,7 @@
+/resources/
+node_modules/
+/public/
+
+archetypes/.DS_Store
+.DS_Store
+layouts/.DS_Store

@@ -1,0 +1,61 @@
+{
+    "title": "Solutions",
+    "button": "View all solutions",
+    "background": "bg-light",
+    "link": "/solutions/",
+    "items":[
+       {
+        "name": "Wayfinder",
+        "img": "/img/home/Solution/wayfinder-sg.webp",
+        "altText": "Wayfinder",
+        "summary": "A dynamic solution to help visitors easily navigate large facilities and campuses with minimal cost.",
+        "card_link": "/solutions/#wayfinder",
+        "link": "/solutions/#wayfinder"
+      },
+      {
+        "name": "Interactive Kiosk",
+        "img": "/img/home/Solution/KIOSK-SG.webp/",
+        "altText": "Interactive Kiosk",
+        "summary": "Create and deploy fully interactive experiences to engage customers, gather insights and drive sales.",
+        "card_link": "/solutions/#I_kiosk",
+        "link": "/solutions/#I_kiosk"
+      },
+      {
+        "name": "Lift & Learn",
+        "img": "/img/home/Solution/lift-and-learn-sg.webp",
+        "altText": "Lift & Learn",
+        "summary": "Create an engaging, personalised shopping experience. Lifting a product triggers product information to be displayed on a screen.",
+        "card_link": "/solutions/#lift_and_learn",
+        "link": "/solutions/#lift_and_learn"
+      }
+    ],
+    "mobile":{
+
+      "slide1":{
+        "imgsrc" : "/img/home/Solution/wayfinder-sg.webp",
+        "imgalt": "First slide",
+        "text" : "Wayfinder",
+        "ataglink":"/solutions/#wayfinder",
+        "status": "active",
+        "dataslideto": "0"
+    
+      },
+      "slide2":{
+        "imgsrc" : "/img/home/Solution/KIOSK-SG.webp/",
+        "imgalt": "Second slide",
+        "text" : "Interactive Kiosk",
+        "ataglink":"/solutions/#I_kiosk",
+        "dataslideto": "1"
+    
+      },
+      "slide3":{
+        "imgsrc" : "/img/home/Solution/lift-and-learn-sg.webp",
+        "imgalt": "Second slide",
+        "text" : "Lift & Learn",
+        "ataglink":"/solutions/#lift_and_learn",
+        "dataslideto": "2"
+    
+      }
+    }
+  }
+

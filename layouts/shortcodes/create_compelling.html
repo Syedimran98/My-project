@@ -1,0 +1,57 @@
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $para := $data.para }} 
+  {{ $title := $data.title }} 
+  {{ $button := $data.button }} 
+  {{ $btnlink := $data.link }} 
+  {{ $btnwidth := $data.btnwidth }} 
+  {{ $dwidth := $data.dwidth }} 
+  {{ $img := $data.img }} 
+  {{ $thought := $data.thought }} 
+  {{ $author := $data.author }} 
+  {{ $mimgwidth := $data.mimgwidth }} 
+  {{ $timgwidth := $data.timgwidth }} 
+  {{ $dimgwidth := $data.dimgwidth }} 
+  {{ $dwidth := $data.dwidth }} 
+
+    <div class="w-100 my-5">
+        {{ with $title }}
+        <div class="container mt-5">
+            <h3 class="fw-bold text-center" style="font-size: 23px;">{{ $title }}</h3>
+                <div class="divider mt-3 mb-4 mx-auto" style="width: {{ $dwidth }}; border-radius:30px;"></div>
+        </div>
+        {{ end }}
+        <p class="font-weight-medium text-secondary mb-4 mx-auto text-center" style="width:85%; font-size: 18px;">{{ $para }}</p>
+        <div class="w-100 text-center">
+            <img class="lazyload img-size" src="{{ $img }}">
+        </div>
+        {{ if $btnlink }}
+        <div class="container py-5 mx-auto text-center"> 
+            <a href="{{ $btnlink }}" class="btn talktous-btn my-3 text-center m-0">{{ $button }}</a>
+        </div>
+        <div class="container mb-5 px-5 py-5 text-left thought" style="border-radius: 20px; width: 85%; background-color: #f1f1f1;">
+                <p class="mx-5">{{ $thought }}</p>
+                <p class="fw-bold mx-5">{{ $author }}</p>
+                {{ end }}
+        </div>
+    </div> 
+    <style scoped>
+         @media (min-width: 480px) and (max-width: 980px){
+            .img-size{
+                width: {{ $mimgwidth }};
+            }
+         }
+         @media (max-width: 480px){
+            .img-size{
+                width: {{ $timgwidth }};
+                
+            }
+         }
+         @media (min-width: 980px){
+            .img-size{
+                width: {{ $dimgwidth }};
+            }
+         }
+    </style>
+{{ end }}

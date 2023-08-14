@@ -1,0 +1,104 @@
+{{ with .Get "url" }}
+{{ $url := . }}
+{{ $data := getJSON $url }}
+{{ $heading := $data.heading }}
+<div class="container my-4">
+    <div class="color-scala-section-header text-center fw-bold hfont pb-1 fs-5">{{ $heading }}</div>
+    <div class="divider mb-5 mx-auto"></div>
+</div>
+<div class="container">
+    <div class="row my-4 gap-1" style="font-size: 14px; color: #444; font-weight: 500; font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;">
+        <div class="col col-lg-3" style="width: 17% !important;">
+            <form>
+                <input type="text" name="" id="search-item" placeholder="Search" onkeyup="search()" style=" padding: 5.2px 8px;">
+            </form>
+        </div>
+        <div class="col col-lg-2" style="width: 14% !important;">
+            <select name="fecthjob" id="jobtype" onchange="search()" class="px-4 py-2">
+                <option value="">All Job Types</option>
+                <option value="Full Time">Full Time</option>
+            </select>
+        </div>
+        <div class="col col-lg-2">
+            <select name="fecthloc" id="location" onchange="search()" class="px-4 py-2">
+                <option value="">All Job Locations</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Delhi/NCR">Delhi/NCR</option>
+                <option value="India">India</option>
+                <option value="KL">KL</option>
+                <option value="Malaysia">Malaysia</option>
+            </select>
+        </div>
+    </div>
+    <div class="job-list">
+        <div id="message" style="display: none;">
+            <span>Sorry, no jobs found!</span>
+        </div>
+        {{ range $data.jobs }}
+        <div class="job" style="display: block;">
+            <a href="{{ .link }}" class="text-decoration-none">
+                <div class="row">
+                    <div class="col my-2 border p-4" style="box-shadow: 0 3px 15px -5px rgb(0 0 0 / 20%);">
+                        <div class="text-dark fs-5 title" style="font-weight: 500;">{{ .title }}</div>
+                        <div class="text-dark" style="font-size: 14px; font-weight: 500;">
+                            <div>
+                                <i class="bi bi-clock"></i>
+                                <span class="typeofjob">{{ .jobtype }}</span>
+                            </div>
+                            <div>
+                                <i class="bi bi-geo-alt-fill fw-bold"></i>
+                                <span class="loc">{{ .location }}</span>
+                            </div>
+                        </div>
+                        <div class="awsm-job-more-container">
+                            <span>More Details</span><i class="bi bi-arrow-right fw-bold"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+<script>
+  const search = () => {
+  const searchbox = document.getElementById("search-item").value.toUpperCase();
+  const jobType = document.getElementById("jobtype").value.toUpperCase();
+  const location = document.getElementById("location").value.toUpperCase();
+  
+  const jobs = document.querySelectorAll(".job");
+  
+  for (let i = 0; i < jobs.length; i++) {
+    let job = jobs[i];
+    let title = job.querySelector(".title").textContent.toUpperCase();
+    let type = job.querySelector(".typeofjob").textContent.toUpperCase();
+    let loc = job.querySelector(".loc").textContent.toUpperCase();
+    
+    let isTitleMatch = title.includes(searchbox);
+    let isTypeMatch = jobType === "" || type === jobType;
+    let isLocationMatch = location === "" || loc.includes(location);
+    
+    if (isTitleMatch && isTypeMatch && isLocationMatch) {
+      job.style.display = "block";
+    } else {
+      job.style.display = "none";
+    }
+  }
+  
+  const message = document.getElementById("message");
+  const visibleJobs = document.querySelectorAll(".job[style='display: block;']");
+  message.style.display = visibleJobs.length === 0 ? "block" : "none";
+}
+const reset = () => {
+  document.getElementById("search-item").value = "";
+  document.getElementById("jobtype").value = "";
+  document.getElementById("location").value = "";
+  search();
+}
+
+document.getElementById("jobtype").addEventListener("change", search);
+document.getElementById("location").addEventListener("change", search);
+
+</script>
+
+{{ end }}

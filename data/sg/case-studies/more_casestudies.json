@@ -1,0 +1,173 @@
+{
+    "heading": "More Case Studies",
+    "dwidth": "10%",
+    "items_PerPage": 12,
+    "pagination_id": "pagination-list1",
+    "pagination_class": "myPagination",
+    "noOfCardsPerPage": "6",
+    "dcard_height" : "23vw",
+    "tcard_height" : "40vw",
+    "mcard_height" : "70vw",
+    "dimg_height" : "14.5vw",
+    "timg_height" : "30vw",
+    "mimg_height" : "35vw",
+    "cards":[
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      },
+       {
+        "name": "My case studies posts",
+        "img": "/img/case studies/Debenhams-Beauty/Debenhams-Beauty-Bar-Main-image-400x250.png.webp",
+        "altText": "WE Fashion Flagship Store",
+        "link": "#"
+      }
+    ]
+  }
+

@@ -1,0 +1,167 @@
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $title := $data.title }} 
+  {{ $button1 := $data.button1 }}  
+  {{ $button2 := $data.button2 }}  
+  {{ $button3 := $data.button3 }}  
+  {{ $button4 := $data.button4 }}  
+  {{ $link1 := $data.link1 }} 
+  {{ $link2 := $data.link2 }} 
+  {{ $link3 := $data.link3 }} 
+  {{ $link4 := $data.link4 }} 
+<div class="w-100">
+<div id="section-1" class="d-none d-lg-block">
+    <div class="container-fluid d-flex align-items-center my-5">
+        <div class="row text-center mx-auto w-75"> 
+            {{ range $data.buttons }}  
+            {{ $link:= .link }}  
+            {{ $button:= .button }}  
+            {{ $class:= .class }}  
+            <a class="col multi-btn btn-primary mx-5 multitab-btn {{ $class }}" href="{{ $link }}">{{ $button }}</a>
+            {{ end }}   
+        </div> 
+    </div>
+    <div id="row1">
+        <div class="row mx-auto">
+            {{ range $data.items }}
+            {{ $img := .img }}
+            {{ $name := .name }}
+            {{ $altText := .altText }}  
+            {{ $summary := .summary }}  
+            {{ $author := .author }}  
+            {{ $link := .link }} 
+            <div class="col-lg-6 col-md-6">
+            <div id="module1" class="col-lg col-md col-sm-12 rounded-1 position-relative mx-3 my-1 bg-light w-100" style="padding: 2%;">
+                <a href="{{ $link }}">
+                    <img class="lazyload" src="{{ $img }}" alt="">
+                    <h3>{{ $summary }}</h3>
+                    <p>{{ $author }}</p>
+                </a>
+            </div>
+        </div>
+            {{ end }}
+            </div>
+        </div>
+    </div>
+
+<div id="section-2" class="d-lg-none">
+    <div class="container-fluid d-flex justify-content-evenly align-items-center my-4 mx-0 w-100">
+        <div class="row d-flex justify-content-center text-center w-100 gap-1"> 
+            {{ range $data.buttons }}  
+            {{ $link:= .link }}  
+            {{ $button:= .button }}  
+            {{ $class:= .class }}  
+            <a class="w-25 col-sm mx-3 multi-btn btn-primary multitab-btn  p-0 {{ $class }}" id="tab1" data-toggle="tab" href="{{ $link }}">{{ $button }}</a>
+            {{ end }}
+        </div> 
+    </div>
+    <div id="row1">
+        <div id="column1" class="row">
+            {{ range $data.items }}
+            {{ $img := .img }}
+            {{ $name := .name }}
+            {{ $altText := .altText }}  
+            {{ $summary := .summary }}  
+            {{ $author := .author }}  
+            {{ $link := .link }} 
+            <div id="module1" class="col-lg col-md col-sm-12 rounded-1 position-relative mx-auto my-1 bg-light w-75" style="padding: 2%;">
+                <a href="{{ $link }}">
+                    <img class="lazyload w-50" src="{{ $img }}" alt="">
+                    <h3 style="font-size: 3vw !important;">{{ $summary }}</h3>
+                    <p style="font-size: 3vw !important;">{{ $author }}</p>
+                </a>
+            </div>
+            {{ end }}
+            </div>
+        </div>
+    </div>
+ </div>
+ <style>
+    a{
+        text-decoration: none;
+    }
+    .active{
+        color: #FFFFFF !important;
+        background-color: #db453f !important;
+    }
+    @media (max-width:980px){
+        .multitab-btn{
+            width: 24% !important;
+            font-size: 3vw !important;
+            margin: 0% 0% !important;
+        }
+    }
+    
+ .multitab-btn{
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+    border-width: 0px!important;
+    border-radius: 9rem;
+    font-size: 1vw;
+    font-weight: 700!important;
+    background-color: #f2eff4;
+    color: #000000;
+    padding-top: 0.6vw!important;
+    padding-bottom: 0.6vw!important;
+    margin: 2% 12%;
+  }
+  .btn-primary:hover, .btn-primary:active{
+    background-color: #db453f;
+    color: #FFFFFF!important;
+    border-color: #db453f !important;
+  }
+  #row1 .tabCards{
+    background-color: #F4F5F9;
+    border-radius: 1rem;
+    padding: 1.5vw;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 4% 0%;
+  }
+  #module1 img{
+    float: left;
+    width: 17vw;
+    margin-right: 5%;
+    margin-bottom: 0;
+  }
+  #module1 a{
+    text-decoration: none;
+    width: 10;
+    display: block;
+    height: 10vw;
+  }
+  #module1 h3{
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+    color: #000000!important;
+    padding-bottom: 1vw;
+    line-height: 1em;
+    font-weight: bold;
+    font-size: 1.04vw!important;
+  }
+  #module1 p{
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif!important;
+    color: #333;
+    padding-bottom: 1vw;
+    line-height: 1em;
+    font-weight: 500;
+    font-size: 1.04vw!important;
+
+  }
+  div#row1 {
+    display: flex;
+    justify-content: center;
+}
+  div#column1 {
+    display: flex;
+    gap: 1vw;
+    row-gap: 1vw;
+    column-gap: 3vw;
+}
+@media (min-width: 980px){
+      .desktop{
+        display: none !important;
+      }
+    }
+ </style>
+ {{ end }}

@@ -1,0 +1,15 @@
+{{ with .Get "url" }} 
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+<div class="container">
+    <div class="row">
+        {{ range $data.items }}
+        <div class="col-lg-4">
+            <div>{{ .title }}</div>
+            <div>{{ .address }}</div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+

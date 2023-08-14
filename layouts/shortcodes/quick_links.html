@@ -1,0 +1,65 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $heading := $data.links.heading }}
+  {{ $img := $data.links.img }}
+  <div class="mx-auto w-100 d-none d-lg-block">
+      <div class="container my-5"> 
+        <h2 class="fw-bold mx-auto text-center">{{ $heading }}</h2>
+        <div class="divider mb-5 mx-auto"></div>
+      </div>
+      <div class="container my-5 mx-auto">
+        {{ $items := $data.links.items }}
+        {{ $rowCount := div (len $items) 3 }}
+        <div class="row my-4">
+          <div class="col-4">
+            {{ range $i, $item := $items }}
+              {{ if le $i 6 }}
+              <a href="{{ .link }}">
+              <span class="d-flex">
+                <img loading="lazy" class="lazyload" src="{{ .img }}" alt="" style="width: 24px; height: 24px; margin-top: 4%;">
+                <li class="my-3" style="list-style: none; margin-left: 2%; ">{{ $item.title }}</li>
+              </span>
+            </a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="col-4">
+            {{ range $i, $item := $items }}
+              {{ if and (ge $i 7) (le $i 13) }}
+              <a href="{{ .link }}">
+                <span class="d-flex">
+                <img loading="lazy" class="lazyload" src="{{ .img }}" alt="" style="width: 24px; height: 24px; margin-top: 4%;">
+                <li class="my-3" style="list-style: none; margin-left: 2%; ">{{ $item.title }}</li>
+              </span>
+              </a>
+              {{ end }}
+            {{ end }}
+          </div>
+          <div class="col-4">
+            {{ range $i, $item := $items }}
+              {{ if and (ge $i 14) (le $i 18) }}
+              <a href="{{ .link }}">
+                <span class="d-flex">
+                <img loading="lazy" class="lazyload" src="{{ .img }}" alt="" style="width: 24px; height: 24px; margin-top: 4%;">
+                <li class="my-3" style="list-style: none; margin-left: 2%; ">{{ $item.title }}</li>
+              </span>
+              </a>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+  </div>
+  <style>
+    li{
+        font-size: 18px !important;
+        font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+        color: #666;
+        font-weight: 500;
+    }
+    a{
+      text-decoration: none;
+    }
+  </style>
+{{ end }}

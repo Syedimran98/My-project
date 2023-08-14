@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{{ .Params.sitetitle }}</title>
+
+<script src="/js/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="preload" href="style.css" as="style" />
+<link rel="stylesheet" href="/css/header.css" />
+<link rel="stylesheet" href="/css/footer.css" />
+<link rel="stylesheet" href="/css/curousel.css"/>
+<link rel="stylesheet" href="/css/main.css"/>
+<link rel="stylesheet" href="/css/multitab.css"/>
+<link rel="stylesheet" href="/css/pagination">
+{{ if ne .Site.Params.RobotsTags ""}}
+  <meta name="robots" content="{{ .Site.Params.RobotsTags }}">
+{{ end }}

@@ -1,0 +1,309 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }}
+  {{ $heading := $data.heading }}
+  {{ $dwidth := $data.dwidth }}
+  {{ $cards := index $data "cards" }}
+  {{ $cardsLength := len $cards }}
+  {{ $items_PerPage := $data.items_PerPage }}
+  {{ $dcard_height := $data.dcard_height }}
+  {{ $tcard_height := $data.tcard_height }}
+  {{ $mcard_height := $data.mcard_height }}
+  {{ $mimg_height := $data.mimg_height }}
+  {{ $timg_height := $data.timg_height }}
+  {{ $dimg_height := $data.dimg_height }}
+  {{ $noOfCardsPerPage := $data.noOfCardsPerPage }}
+
+  <div id="scrollToTop" class="w-100">
+    {{ with $heading }}
+    <div class="container mt-5 mx-auto">
+      <h3 class="fw-bold text-center" style="font-size: 23px;">{{ $heading }}</h3>
+      <div class="divider mt-3 mb-5 mx-auto" style="width: {{ $dwidth }}"></div>
+    </div>
+    {{ end }}
+    <div class="container row d-flex justify-content-center py-4 mx-auto">
+      {{ $totalItemsPerPage := $cardsLength }}
+      {{ $totalPages := (div $cardsLength $totalItemsPerPage) }}
+      {{ $currentPage := 1 }}
+      {{ $startIndex := (sub (mul $totalItemsPerPage $currentPage) $totalItemsPerPage) }}
+      {{ $endIndex := (add $startIndex $totalItemsPerPage) }}
+      {{ range $index, $card := $cards }}
+        {{ if and (ge $index $startIndex) (lt $index $endIndex) }}
+          <!-- Your existing card content here -->
+          <div class="my-4 col-lg-4 col-md-6 col-sm-12 align-items-stretch px-4 cardsLoading_1">
+            <a href="{{ $card.link }}" class="text-decoration-none">
+              <div class="card p-4 bg-white" style="width: 100% !important; box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3); border-radius:20px;">
+                <img class="lazyload card-img" style="border-radius:20px;" src="{{ $card.img }}" class="card-img-top" alt="{{ $card.name }}">
+                <div class="py-4 title-font" style="color: #666666!important; height: 10vw; line-height: 1.2em; font-weight: 600!important;">{{ $card.name }}</div>
+                <p style="font-size: 1vw !important; color: #666; font-weight: 500;">{{ $card.author }} {{ $card.posted_date }}</p>
+                <p style="font-size: 1vw !important; color: #666; font-weight: 500;">{{ $card.country_name }}</p>
+              </div>
+            </a>
+          </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Pagination Container -->
+  
+  <div class="pagination-container">
+    <ul id="pagination-list" class="pagination">
+      <a class="pagination-item smart-count total-pages">{{ $totalPages }}</a>
+      <a href="#" class="pagination-item previous-page"></a>
+      <a href="#" class="pagination-item current-page">{{ $currentPage }}</a>
+      <a href="#" class="pagination-item next-page">&gt;</a>
+      <a href="#" class="pagination-item last-page">{{ $totalPages }}</a>
+    </ul>
+  </div>
+
+  <style>
+    @media(max-width:480px){
+      .card{
+        height:{{ $mcard_height }};
+      }
+      .card-img{
+        height: {{ $mimg_height }};
+      }
+      .title-font{
+        font-size: 4vw;
+      }
+    }
+    @media(min-width:480px) and (max-width:980px){
+      .card{
+        height:{{ $tcard_height }};
+      }
+      .card-img{
+        height: {{ $timg_height }};
+      }
+      .title-font{
+        font-size: 2vw;
+      }
+    }
+    @media(min-width:980px){
+      .card{
+        height:{{ $dcard_height }};
+      }
+      .card-img{
+        height: {{ $dimg_height }};
+      }
+      .title-font{
+        font-size: 1.2vw;
+      }
+    }
+
+    .pagination-container {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+  }
+  .pagination a{
+    color: #000000;
+    background: #ffffff;
+    font-size: 1em!important;
+    line-height: 1em;
+    font-weight: bold!important;
+    padding: 0.45em 0.8em!important;
+    border-radius: 100px;
+    transition: all .5s;
+    border: 1px solid #BFBFBF;
+  }
+  .pagination a:hover{
+    background-color: #0070fc!important;
+    color: #ffffff;
+  }
+  .pagination {
+    display: inline-block;
+    margin: 1% 5%;
+    padding: 0;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+  }
+  
+  .pagination a {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .pagination a.active {
+    font-weight: bold;
+  }
+  
+  /* New CSS to position the pagination at the bottom right corner */
+  .pagination-container {
+    position: relative;
+  }
+  
+  </style>
+
+  <script>
+     // JavaScript code for pagination and updating content
+  const totalItemsPerPage = {{ $items_PerPage }}; // Adjust this value as needed
+  const totalItems = {{ $cardsLength }}; // Number of items in the data
+ 
+  const totalPages = Math.ceil(totalItems / totalItemsPerPage);
+  let currentPage = 1;
+  
+  console.log(totalItemsPerPage, totalItems, totalPages);
+  function generatePagination() {
+    const paginationList = document.getElementById("pagination-list");
+  paginationList.innerHTML = "";
+
+  // Part 1: Total number of pages with current page
+  const totalPageItem = document.createElement("a");
+  totalPageItem.textContent = `Page ${currentPage} of ${totalPages}`;
+  totalPageItem.classList.add("pagination-item", "total-pages");
+  totalPageItem.style.backgroundColor = "transparent";
+  paginationList.appendChild(totalPageItem);
+
+  //First page
+
+  const firstPageItem = document.createElement("a");
+  firstPageItem.style.display = "none";
+  firstPageItem.innerHTML = '«' + ' First';
+  firstPageItem.href="#scrollToTop"
+  firstPageItem.id="firstPageButton"
+  firstPageItem.classList.add("pagination-item", "last-page");
+    if(currentPage !== 1) {
+      firstPageItem.style.display = "unset";
+    }
+  firstPageItem.addEventListener("click", () => {
+    if (currentPage !== 1) {
+      currentPage = 1;
+      updateContent();
+      generatePagination();
+    }
+  });
+  paginationList.appendChild(firstPageItem);
+
+  // Part 2: Previous page button with "<" symbol
+  const previousPageItem = document.createElement("a");
+  previousPageItem.innerHTML = '«';
+  previousPageItem.style.display = "none";
+  previousPageItem.href = "#scrollToTop";
+  previousPageItem.classList.add("pagination-item", "previous-page");
+  if(currentPage !== 1) {
+      previousPageItem.style.display = "unset";
+    }
+  previousPageItem.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      updateContent();
+      // paginationList.appendChild(previousPageItem);
+      generatePagination();
+    }
+  });
+  paginationList.appendChild(previousPageItem);
+
+  // Part 3: Current page number
+  const currentPageItem = document.createElement("a");
+  currentPageItem.textContent = currentPage;
+  currentPageItem.style.backgroundColor = "#0070fc";
+  currentPageItem.style.color = "white";
+  currentPageItem.classList.add("pagination-item", "current-page");
+  paginationList.appendChild(currentPageItem);
+
+  // Part 4: Next page button with ">" symbol
+  const nextPageItem = document.createElement("a");
+nextPageItem.innerHTML = '»';
+nextPageItem.href = "javascript:void(0);"; // Set href to "javascript:void(0);" to prevent URL change
+nextPageItem.classList.add("pagination-item", "next-page");
+nextPageItem.style.display = "none";
+if(currentPage !== totalPages) {
+  nextPageItem.style.display = "unset";
+    }
+nextPageItem.addEventListener("click", function(event) {
+  if (currentPage < totalPages) {
+    currentPage++;
+    updateContent();
+    generatePagination();
+    scrollToTop(); // Call the custom function to scroll to the top
+  }
+});
+
+ 
+
+// Custom function to scroll to the top of the page smoothly
+function scrollToTop() {
+  const scrollToTopElement = document.getElementById("scrollToTop");
+  scrollToTopElement.scrollIntoView({ behavior: "smooth" });
+}
+  paginationList.appendChild(nextPageItem);
+
+  // Part 5: Button to go to last page
+  const lastPageItem = document.createElement("a");
+  lastPageItem.innerHTML = 'Last ' + '»';
+  lastPageItem.href = "javascript:void(0);"; 
+  lastPageItem.classList.add("pagination-item", "last-page");
+  lastPageItem.addEventListener("click", () => {
+    if (currentPage !== totalPages) {
+      currentPage = totalPages;
+      updateContent();
+      generatePagination();
+      scrollToTop();
+    }
+  });
+  paginationList.appendChild(lastPageItem);
+  }
+
+  function updateContent() {
+    // The existing code for updating content goes here
+    // ...
+
+    // Instead of updating the contentContainer with dummy data,
+    // we need to update the card display based on the currentPage.
+
+    // First, hide all cards.
+    const cards = document.querySelectorAll(".cardsLoading_1");
+    cards.forEach(card => {
+      card.style.display = "none";
+    });
+
+    // Then, show the cards for the current page.
+    const startIndex = (currentPage - 1) * totalItemsPerPage;
+    const endIndex = Math.min(startIndex + totalItemsPerPage, totalItems);
+    console.log(cards)
+    // document.addEventListener("DOMContentLoaded", function () { 
+    for (let i = startIndex; i < endIndex; i++) { 
+      console.log(cards[i].outertText);
+    cards[i].style.display = "block"; 
+    } 
+    // });
+  }
+
+  // Add event listeners for pagination buttons.
+  document.querySelector(".previous-page").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateContent();
+    generatePagination();
+  }
+});
+
+document.querySelector(".next-page").addEventListener("click", () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    updateContent();
+    generatePagination();
+  }
+});
+
+document.querySelector(".last-page").addEventListener("click", () => {
+  if (currentPage !== totalPages) {
+    currentPage = totalPages;
+    updateContent();
+    generatePagination();
+  }
+});
+
+// Initial setup
+generatePagination();
+updateContent();
+
+  </script>
+{{ end }}
+

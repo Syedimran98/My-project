@@ -1,0 +1,16 @@
+{
+    "banner":{
+      "imgsrc" : "/img/case studies/Case-Study-SG-Banner-Image-1.webp",
+      "imgalt": "Case Studies",
+      "bannerTitle" : "Case Studies",
+      "bannerSubtitle" : "Innovative new uses for Scala Digital Signage",
+      "ataglink":"#",
+      "height":"35vw"
+    },
+    "mbanner": {
+      "imgsrc" : "/img/case studies/Case-study-mobile-banner-image.webp",
+      "mbannerTitle" : "Case Studies",
+      "mbannerSubtitle" : "Innovative new uses for Scala Digital Signage",
+      "height":"70vw"
+    }
+  }

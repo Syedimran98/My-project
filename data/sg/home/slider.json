@@ -1,0 +1,81 @@
+{
+  "desktop":{
+    "slide1":{
+      "imgsrc" : "/img/Home-page-banner-new-1.webp",
+      "imgalt": "First slide",
+      "text" : "Endless possibilities to reinvent your digital experience",
+      "atagtxt": "Download Brochure",
+      "status": "active",
+      "dataslideto": "0",
+      "pop_up_link": "#popup"
+  
+    },
+    "slide2":{
+      "imgsrc" : "/img/Media-player-home-page-banner-image.webp",
+      "imgalt": "Second slide",
+      "text" : "Scala Media Players: stable, reliable content delivery",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "1",
+      "pop_up_link": "#popup"
+  
+    },
+    "slide3":{
+      "imgsrc" : "/img/Homepage-banner-image-ultimate-design-tool-sg.webp",
+      "imgalt": "MG",
+      "text" : "Easy, smart and centralised content management",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "2",
+      "pop_up_link": "#popup"
+    },
+    "slide4":{
+      "imgsrc" : "/img/Home-page-banner-desktop-img-f.webp",
+      "imgalt": "MG",
+      "text" : "Endless possibilities to reinvent your digital experience",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "3",
+      "pop_up_link": "#popup"
+    }
+
+  },
+  "mobile":{
+
+    "slide1":{
+      "imgsrc" : "/img/home/slider/Home-page-mob-banner-img-a.png",
+      "imgalt": "First slide",
+      "text" : "Endless possibilities to reinvent your digital experience",
+      "atagtxt": "Download Brochure",
+      "status": "active",
+      "dataslideto": "0",
+      "pop_up_link": "#popup"
+  
+    },
+    "slide2":{
+      "imgsrc" : "/img/home/slider/Home-page-mob-banner-img-b.png",
+      "imgalt": "Second slide",
+      "text" : "Scala Media Players: stable, reliable content delivery",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "1",
+      "pop_up_link": "#popup"
+  
+    },
+    "slide3":{
+      "imgsrc" : "/img/home/slider/Home-page-mob-banner-img-c.png",
+      "imgalt": "Second slide",
+      "text" : "Easy, smart and centralised content management",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "2",
+      "pop_up_link": "#popup"
+  
+    },
+    "slide4":{
+      "imgsrc" : "/img/home/slider/Home-page-mob-banner-img-f.png",
+      "imgalt": "Second slide",
+      "text" : "Limitless Creativity – The Ultimate Design Tool for Infinite Customizations!",
+      "atagtxt": "Download Brochure",
+      "dataslideto": "3",
+      "pop_up_link": "#popup"
+  
+    }
+
+  }
+}

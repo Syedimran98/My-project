@@ -1,0 +1,33 @@
+{{ with .Get "url" }} 
+    {{ $url := . }} 
+    {{ $data := getJSON $url }}
+    {{ $title := $data.title }} 
+    {{ $button := $data.button }}  
+    {{ $btnlink := $data.link }}
+    <div class="w-100">
+     <div class="bg-light py-5 text-center my-5">
+        <h2 class="fw-bold hfont">{{ $title }}</h2>
+        <div class="divider mb-5 mx-auto"></div>
+        {{ range $data.para }}
+        {{ $content := .content }}
+            <p class="font-weight-medium text-secondary mx-auto font para-content">{{ $content }}</p>
+        {{end}}
+        <div class="d-flex justify-content-center pt-3">
+             <a href="{{ $btnlink }}" class="btn download-btn btn-primary my-3 m-0 font">{{ $button }}</a>
+        </div>
+     </div>
+    </div>
+
+<style>
+    @media(max-width:980px){
+        .para-content{
+            width: 85% !important;
+        }
+    }
+    @media(min-width:980px){
+        .para-content{
+            width: 70% !important;
+        }
+    }
+</style>
+{{ end }}

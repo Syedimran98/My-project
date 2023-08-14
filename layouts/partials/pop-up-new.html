@@ -1,0 +1,275 @@
+<!-- Modal -->
+    <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog justify-content-center">
+    <!-- this is desktop and tab visibility -->
+    <div class="modal-content  d-none d-lg-block d-md-block mx-auto">
+    <!-- my popup code -->
+    <div class="content">
+    <div class="popup-row" style="display: flex; justify-content: center; margin-top:20px !important; margin-bottom:20px !important; margin-right: 10px !important;">
+      <div class="popup-left-column" style="width: 450px; padding: 20px; min-height: 450px;">
+      <div class="left-container" style="display: flex; padding: 10px; justify-content: center; align-items: center;">
+      <img class="pdf-icon" src="https://apac.scala.com/sg/wp-content/uploads/sites/13/2022/11/pdf-icon.png" style="height: 70px; width:60px;">
+      <div class="pdf-description" style="font-family: 'Montserrat'; font-weight: bold; font-size: 18px; padding: 0 0 0 10px;">Title</div>
+      </div>
+      <div class="pdf-image">
+      <img id="pdf-card-image" src="" style="width: 230px; position: relative; left: 50%; transform: translate(-50%); display: block; display: block;">
+      </div>
+      </div>
+      <div class="popup-right-column" style="width: 450px;background-color: #fff; border-radius: 20px; margin: 0px; padding: 20px; font-family: Montserrat;">
+      <div class="title-text" style=" font-weight: bold; font-size: 20px;">Form Title</div>
+      <div id="email-form">
+      
+      
+      <form id="contact-form">
+        <div class="container pt-3 w-100">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">First Name</label>
+              <label class="text-danger">*</label>
+              <input type="First Name" class="name popup-form-control" id="inputname">
+            </div>
+            <div class="col-md-6">
+              <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Last Name</label>
+              <label class="text-danger">*</label>
+              <input type="name" class="popup-form-control" id="inputname">
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Company</label>
+              <label class="text-danger">*</label>
+                <input type="company" class="popup-form-control" id="inputcompany">
+              </div>
+              <div class="col-12">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Email</label>
+              <label class="text-danger">*</label>
+                <input type="email" class="popup-form-control" id="inputEmail">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Industry</label>
+              <label class="text-danger">*</label>
+                  <select id="inputIndustry" class="popup-form-control form-select">
+                    <option selected style="font-size: 10px; color: #000;">-Please Select-</option>
+                  </select>
+              </div>
+              <div class="col-12">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Phone</label>
+              <label class="text-danger">*</label>
+                <input type="phone" class="popup-form-control" id="inputPhone">
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-12">
+              <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Country</label>
+              <label class="text-danger">*</label>
+              <select id="inputCountry" class="popup-form-control form-select">
+                <option selected style="font-size: 10px; color: #000;">-Please Select-</option>
+              </select>
+            </div>
+        </div>
+          <div class="row  px-md-1 my-md-4">
+            <div class="form-group col-12">
+              <div class="form-check"  style="color: #000000 !important; font-size: 10px;">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck" style="color: #000000 !important; font-size: 10px;">
+                  I confirm, I have read and agree to Scala’s <a href="https://apac.scala.com/sg/privacy-policy/" target="_blank">privacy policy</a>  and consent to sharing my information.
+                </label>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <div class="form-check"  style="color: #000000 !important; font-size: 10px;">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck" style="color: #000000 !important; font-size: 10px;">
+                  I would like to receive alerts and updates from Scala.
+                </label>
+              </div>
+            </div>
+          </div> 
+          <div class="text-center">
+            <button type="button" class="popup-form-btn my-0">Download</button>
+          </div>
+        </div>
+      </form>
+      
+      </div>
+      </div>
+      </div>
+    </div>
+    <a href=""
+    class="box-close">
+     ×
+ </a>
+
+    <!-- pop end -->
+    </div>
+    <!-- this if for mobile -->
+    <div class="modal-content mx-auto  d-lg-none d-md-none">
+      <!-- my popup code -->
+      <div class="content">
+      <div class="popup-row" style="margin-top:20px !important; margin-bottom:20px !important; margin-right: 10px !important;">
+        <div class="popup-left-column" style="width: 450px; padding: 20px;">
+        <div class="left-container" style="padding: 10px; justify-content: center; align-items: center;">
+        <img class="pdf-icon" src="https://apac.scala.com/sg/wp-content/uploads/sites/13/2022/11/pdf-icon.png" style="height: 70px; width:60px;">
+        <div class="pdf-description" style="font-family: Montserrat; font-weight: bold; font-size: 18px; padding: 0 0 0 10px;">Read the full brochure</div>
+        </div>
+        </div>
+        <div class="popup-right-column mx-4" style="width: 70vw;background-color: #fff; border-radius: 20px; margin: 0px; padding: 20px; font-family: Montserrat;">
+        <div class="title-text" style=" font-weight: bold; font-size: 20px;">Download the Brochure now!</div>
+        <div id="email-form">
+        
+        <!-- mobile contact form -->
+        <form id="contact-form">
+          <div class="container pt-3 w-100">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">First Name</label>
+                <label class="text-danger">*</label>
+                <input type="First Name" class="name popup-form-control" id="inputname">
+              </div>
+              <div class="col-md-6">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Last Name</label>
+                <label class="text-danger">*</label>
+                <input type="name" class="popup-form-control" id="inputname">
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                  <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Company</label>
+                <label class="text-danger">*</label>
+                  <input type="company" class="popup-form-control" id="inputcompany">
+                </div>
+                <div class="col-12">
+                  <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Email</label>
+                <label class="text-danger">*</label>
+                  <input type="email" class="popup-form-control" id="inputEmail">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Industry</label>
+                <label class="text-danger">*</label>
+                    <select id="inputIndustry" class="popup-form-control form-select">
+                      <option selected style="font-size: 10px; color: #000;">-Please Select-</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                  <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Phone</label>
+                <label class="text-danger">*</label>
+                  <input type="phone" class="popup-form-control" id="inputPhone">
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-12">
+                <label class="mt-2 fw-bold" style="font-size: 10px; color: #666;">Country</label>
+                <label class="text-danger">*</label>
+                <select id="inputCountry" class="popup-form-control form-select">
+                  <option selected style="font-size: 10px; color: #000;">-Please Select-</option>
+                </select>
+              </div>
+          </div>
+            <div class="row  px-md-1 my-md-4">
+              <div class="form-group col-12">
+                <div class="form-check"  style="color: #000000 !important; font-size: 10px;">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck" style="color: #000000 !important; font-size: 10px;">
+                    I confirm, I have read and agree to Scala’s <a href="https://apac.scala.com/sg/privacy-policy/" target="_blank">privacy policy</a>  and consent to sharing my information.
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-12">
+                <div class="form-check"  style="color: #000000 !important; font-size: 10px;">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck" style="color: #000000 !important; font-size: 10px;">
+                    I would like to receive alerts and updates from Scala.
+                  </label>
+                </div>
+              </div>
+            </div> 
+            <div class="text-center">
+              <button type="button" class="popup-form-btn my-0">Download</button>
+            </div>
+          </div>
+        </form>
+        
+        </div>
+        </div>
+        </div>
+      </div>
+      <a href=""
+      class="box-close">
+       ×
+   </a>
+  
+      <!-- pop end -->
+      </div>
+  </div>
+</div>
+<style>
+  .popup-form-control{
+   box-sizing: border-box;
+   width: 100%;
+   height: 25px;
+   font-size: 14px!important;
+   border: 1px solid #ccc;
+   margin: 5px 2px;
+   padding: 1px 3px;
+   background: #FFFFFF;
+   border-radius: 2px;
+   color: #333;
+   line-height: 1.3;
+ }
+ .popup-form-btn{
+   background-color: #ee3235!important;
+   border: 0px!important;
+   color: #fff!important;
+   font-size: 10px !important;
+   padding: 10px 45px!important;
+   border-radius: 10px!important;
+   display: block;
+   margin: auto;
+   text-align: center;
+   margin-top: 20px;
+   font-weight: bold;
+ }
+ .modal-content {
+   background-color: rgb(221, 224, 235);
+   max-width: 980px;
+   border-radius: 20px;
+   height: auto;
+   box-shadow: 0px 0px 0px 0px #ccc;
+ }
+ .box-close {
+   position: absolute;
+   top: 0;
+   right: 15px;
+   font-size: 30px;
+   color: #666;
+   text-shadow: 0 1px 0#000;
+   font-weight: bold;
+ }
+ @media (max-width:980px) and (min-width:480px){
+   .modal-content{
+     width: 100% !important;
+   }
+   .modal-dialog {
+    max-width: 80% !important;
+    margin: 4.75rem auto;
+  }
+ }
+ @media (min-width:980px){
+   .modal-content{
+     width: 100% !important;
+   }
+   .modal-dialog {
+    max-width: 64% !important;
+    margin: 1.75rem auto;
+  }
+ }
+ @media (max-width:480px){
+   .modal-content{
+     width:90% !important;
+   }
+ }
+</style>

@@ -1,0 +1,135 @@
+{{ with .Get "url" }}
+{{ $url := . }}
+{{ $data := getJSON $url }}
+<h2 style="margin-left: 6%;">Asia Specific</h2>
+<div class="divider2"></div>
+<div class="container">
+  <div class="row">
+    {{ range $data.Asia }}
+    <div class="five-col col-md-4 col-6 my-3 w-md-25" style="cursor: pointer;">
+      <div id="{{ .cookie_id }}" class="cookie-language-class">
+      <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+        <div class="my-2 fw-bold">{{ .country_name }}</div>
+        <div class="d-flex align-items-center">
+          <img class="flag" src="{{ .country_flag }}" alt="">
+          <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+    {{ end }}
+  </div>
+ </div>
+
+ <h2 style="margin-left: 6%;">America</h2>
+<div class="divider2"></div>
+<div class="container">
+  <div class="row">
+    {{ range $data.America }}
+    <div class="five-col col-md-4 my-3 w-md-25">
+      <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+        <div class="my-2 fw-bold">{{ .country_name }}</div>
+        <div class="d-flex align-items-center">
+          <img class="flag" src="{{ .country_flag }}" alt="">
+          <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+ </div>
+
+ <h2 style="margin-left: 6%;">Europe</h2>
+<div class="divider2"></div>
+<div class="container">
+  <div class="row">
+    {{ range $data.Europe }}
+    <div class="five-col col-md-4 my-3 w-md-25">
+      <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+        <div class="my-2 fw-bold">{{ .country_name }}</div>
+        <div class="d-flex align-items-center">
+          <img class="flag" src="{{ .country_flag }}" alt="">
+          <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+ </div>
+
+ <h2 style="margin-left: 6%;">Latin America</h2>
+<div class="divider2"></div>
+<div class="container">
+  <div class="row">
+    {{ range $data.Latin_America }}
+    <div class="five-col col-md-4 my-3 w-md-25">
+      <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+        <div class="my-2 fw-bold">{{ .country_name }}</div>
+        <div class="d-flex align-items-center">
+          <img class="flag" src="{{ .country_flag }}" alt="">
+          <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+ </div>
+
+ <h2 style="margin-left: 6%;">Middle East</h2>
+ <div class="divider2"></div>
+ <div class="container">
+   <div class="row">
+     {{ range $data.Middle_East }}
+     <div class="five-col col-md-4 my-3 w-md-25">
+       <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+         <div class="my-2 fw-bold">{{ .country_name }}</div>
+         <div class="d-flex align-items-center">
+          <img class="flag" src="{{ .country_flag }}" alt="">
+           <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+         </div>
+       </div>
+     </div>
+     {{ end }}
+   </div>
+  </div>
+ 
+  <h2 style="margin-left: 6%;">Africa</h2>
+  <div class="divider2"></div>
+  <div class="container">
+    <div class="row">
+      {{ range $data.Africa }}
+      <div class="five-col col-md-4 my-3 w-md-25">
+        <div class="cards px-3 pb-3 pt-2 rounded border w-md-25" style="box-shadow: 0px 3px 10px 0px rgba(175,175,175,0.3);">
+          <div class="my-2 fw-bold">{{ .country_name }}</div>
+          <div class="d-flex align-items-center">
+            <img class="flag" src="{{ .country_flag }}" alt="">
+            <span class="m-2" style="color: #666; font-size: 14px;">{{ .country_language }}</span>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+   </div>
+ <style>
+  .divider2{
+    border-radius: 20px; margin-left: 6%; 
+    content:"";  
+    color: gray; 
+    width: 70px; 
+    height: 8px;
+  }
+  @media(max-width:480px){
+    
+  }
+  @media(min-width:480px) and (max-width:980px){
+    .flag{
+      width:30%;
+    }
+  }
+  @media(min-width:980px){
+    .five-col{
+      width:20%;
+    }
+  }
+ </style>
+ {{ end }}

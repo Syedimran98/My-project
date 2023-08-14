@@ -1,0 +1,64 @@
+{{ with .Get "url" }}
+  {{ $url := . }}
+  {{ $data := getJSON $url }}
+  {{ $button := $data.button }}
+  {{ $btnlink := $data.link }}
+  {{ $dwidth := $data.dwidth }}
+  {{ $dheight := $data.dheight }}
+  <div class="w-100 d-none d-md-block d-lg-block">
+    <div class="container mw-100">
+      <div class="row py-5 my-3 mx-4">
+        {{ range $data.items }}
+        <div class="col-lg-3 col-6">
+            <a href="{{ .link }}" class="text-decoration-none">
+          <div class="card p-3 bg-white rounded-4 my-3 card-size" style="box-shadow: 0px 0px 17px -6px rgba(0,0,0,0.3); border-radius: 15px;">
+            <img class="lazyload" src="{{ .img }}" class="card-img-top w-25 mx-auto" alt="{{ .name }}">
+            <div class="card-body">
+              <h4 class="text-center" style="font-weight: 600; font-size: 23px !important; color: #333;">{{ .name }}</h4>
+              <div class="divider mt-2 mb-1 mx-auto d-none d-lg-block" style="width: {{ $dwidth }}; height: {{ $dheight }}; border-radius:20px"></div>
+              <div class="card-text text-center card-text">{{ .summary }}</div>
+            
+            </div>
+          </div>
+        </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <!-- mobile code -->
+  <div class="w-100 d-md-none d-lg-none">
+    <div class="container mw-100">
+      <div class="row mt-4 px-3">
+        {{ range $data.m_items }}
+        <div class="col-lg-3 col-6">
+            <a href="{{ .link }}" class="text-decoration-none">
+          <div class="card p-3 bg-white rounded-4 my-3" style="box-shadow: 0px 0px 17px -6px rgba(0,0,0,0.3); border-radius: 15px; height: 50vw;">
+            <img class="lazyload" src="{{ .img }}" class="card-img-top mx-auto" alt="{{ .name }}">
+            <div class="card-body">
+              <h4 class="text-center" style="font-weight: 600; font-size: 4.2vw !important; color: #333;">{{ .name }}</h4>
+            </div>
+          </div>
+        </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <style>
+    @media (max-width:980px) and (min-width:480px){
+      .card-size{
+        height: 62vw !important;
+      }
+    }
+    @media (min-width:980px){
+      .card-size{
+        height: 40vw !important;
+      }
+    }
+    .card:hover{
+    transform: scale(1.1) !important; 
+    transition: 0.5s ease !important;
+}
+  </style>
+{{ end }}

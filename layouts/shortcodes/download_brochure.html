@@ -1,0 +1,80 @@
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $para1 := $data.para1 }} 
+  {{ $title := $data.title }} 
+  {{ $para2 := $data.para2 }} 
+  {{ $para3 := $data.para3 }} 
+  {{ $tag2 := $data.tag2 }} 
+  {{ $tag3 := $data.tag3 }} 
+  {{ $button := $data.button }} 
+  {{ $btnlink := $data.btnlink }} 
+  {{ $src := $data.src }}     
+  {{ $pdfsrc := $data.pdfsrc }}   
+  {{ $dbackround_size := $data.dbackround_size}}  
+  {{ $tbackround_size := $data.tbackround_size}}  
+  {{ $mbackround_size := $data.mbackround_size}}
+<div class="w-100">
+    <div class="container mw-100 lazyload bg-design">
+        <a href="{{ $pdfsrc }}">
+        <img src="{{ $src }}" class="rounded-10 mx-auto d-block my-img my-5">
+        </a>
+    <div class="mt-5 text-muted">
+        <p class="text-center font">{{ $para1 }}</p>
+        <p class="text-center fs-5 text fw-bolder pb-4">{{ $title }}</p>
+        {{ with $para2 }}
+    <p class="text-center pb-2"><span class="text-danger font">{{ $para2 }}</span> – {{ $tag2 }}</p>
+        <p class="text-center pb-2"><span class="text-danger font">{{ $para3 }}</span> – {{ $tag3 }}</p>
+        {{ end }}
+    </div>
+    {{ with $button }}
+    <div class="container py-5 mx-auto text-center">
+        <a href="{{ $btnlink }}" target="_blank" class="talktous-btn my-3 text-center m-0">{{ $button }}</a>
+    </div> 
+    {{ end }}
+    </div>
+</div>
+<style scoped>
+    @media (min-width: 480px) and (max-width: 980px){
+        .my-img{
+            width: 80%;
+            border-radius: 10%;
+        }
+        .bg-design{
+            background-image: url(/img/products/download-bg-desktop.webp); 
+            background-repeat: no-repeat; 
+            background-position: center bottom;     
+            background-size: {{ $tbackround_size }};
+            margin: 10% 0%;
+            
+        }
+         }
+         @media (max-width: 480px){
+            .my-img{
+            width: 80%;
+            border-radius: 10%;
+        }
+        .bg-design{
+            background-image: url(/img/products/download-bg-desktop.webp); 
+            background-repeat: no-repeat; 
+            background-position: center bottom ;     
+            background-size: {{ $mbackround_size }};
+            margin: 10% 0%;
+        }
+         }
+         @media (min-width: 980px){
+            .my-img{
+            width: 45%;
+            border-radius: 10%;
+        }
+        .bg-design{
+            background-image: url(/img/products/download-bg-desktop.webp); 
+            background-repeat: no-repeat; 
+            background-position: center bottom;     
+            background-size: {{ $dbackround_size }};
+            margin: 10% 0%;
+            
+        }
+        }
+</style>
+{{ end }}

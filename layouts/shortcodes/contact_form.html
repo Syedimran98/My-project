@@ -1,0 +1,168 @@
+
+{{ with .Get "url" }} 
+  {{ $url := . }} 
+  {{ $data := getJSON $url }}
+  {{ $formtitle := $data.formtitle }}
+  <form name="contact" method="POST" loading="lazy" id="Contact-form" class="my-5" netlify>
+    <div class="container form-design pt-3 pb-md-3">
+      {{ with $formtitle }}
+      <div class="container">
+            <h3 class="fw-bold text-center" style="font-size: 30px;">{{ $formtitle }}</h3>
+            <div class="divider mb-5 mx-auto"style="border-radius:30px;"></div>
+      </div>
+      {{ end }}
+      <div class="row">
+        <div class="col-md-6">
+          <input type="First Name" class="name form-control mystyle" id="inputfirstname" name="First Name" placeholder="First Name*">
+        </div>
+        <div class="col-md-6">
+          <input type="name" class="form-control mystyle" id="inputlastname" name="Last Name" placeholder="Last Name*">
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <input type="company" class="form-control mystyle" id="inputcompany" name="Company" placeholder="Company*">
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control mystyle" id="inputEmail" name="email" placeholder="Email*">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+              <select id="inputIndustry" name="Industry" class="form-select mystyle">
+                <option selected>Select Industry*</option>
+                {{ range $data.industries }}
+                  {{ $industry := . }}
+                  <option value="{{ $industry }}">{{ $industry }}</option>
+                {{ end }}
+              </select>
+          </div>
+          <div class="col-md-6">
+            <input type="phone" class="form-control mystyle" id="inputPhone" name="Phone" placeholder="Phone*">
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+          <select id="inputCountry" name="Country" class="mystyle form-select">
+            <option selected>Select Country*</option>
+            {{ range $data.countries }}
+              {{ $country := . }}
+              <option value="{{ $country }}">{{ $country }}</option>
+            {{ end }}
+
+          </select>
+        </div>
+    </div>
+      <div class="form-group">
+        <textarea class="form-control mystyle" id="message" placeholder="Message" name="Message" rows="5" required></textarea>
+      </div>
+      <div class="row  px-md-4">
+        <div class="form-group col-md-6">
+          <div class="form-check">
+            <input class="form-check-input my-md-4" type="checkbox" id="gridCheck">
+            <label class="form-check-label my-md-4" for="gridCheck">
+              I confirm, I have read and agree to Scala’s <a href="https://apac.scala.com/sg/privacy-policy/" target="_blank">privacy policy</a>  and consent to sharing my information.
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="form-check">
+            <input class="form-check-input my-md-4" type="checkbox" id="gridCheck">
+            <label class="form-check-label my-md-4" for="gridCheck">
+              I would like to receive alerts and updates from Scala.
+            </label>
+          </div>
+        </div>
+      </div> 
+      <div class="text-center pt-4">
+        <button type="submit" class="btn btn-primary form-btn">Submit</button>
+      </div>
+    </div>
+  </form>
+  <style>
+     .form-design{
+    background-color: #eeeff1;
+    border-radius: 20px 20px 20px 20px;
+    font-weight: bold;
+    width: 60%; 
+    padding: 4% !important;
+
+  }
+  @media(max-width:480px){
+    .form-design{
+    background-color: transparent;
+    width: 90%;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+  .mystyle{
+    padding: 10px 15px !important;
+    margin: 4px 0px !important;
+    color: #000000!important;
+    border: 1px solid #000000 !important;
+    border-radius: 6px !important;
+  }
+}
+  @media(max-width:1000px) and (min-width:480px){
+    .form-design{
+    width: 80%;
+    }
+}
+.mystyle{
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 10px 15px !important;
+    margin: 12px 0px;
+    font-size: 13px !important;
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700!important;
+  }
+  .mystyle::placeholder{
+    font-family: 'Montserrat',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700!important;
+    color: #000000!important;
+  }
+  .form-check-label{
+    font-size: 13px;
+  }
+  .form-check-label a{
+    color: #000000!important;
+    text-decoration: underline;
+  }
+  .text-center .form-btn {
+    padding: 10px 50px;
+    font-size: 16px;
+    background-color: #e80b0b;
+    color: #faf7f7;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .text-center .form-btn:hover {
+    background-color: #e80b0b;
+  }
+  </style>
+    <!-- <script src="Include a script tag to https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        Email.send({
+        Host : "smtp.gmail.com",
+        Username : "syedimran213tp@gmail.com",
+        Password : "password",
+        To : 'syedimran213tp@gmail.com',
+        From : document.getElementById("inputEmail").value,
+        Subject : "Scala contact form",
+        Body : "Name:" + document.getElementById("inputfirstname").value + document.getElementById("inputlastname").value
+        + "<br> company :" + document.getElementById("inputcompany").value 
+        + "<br> Email :" + document.getElementById("inputemail").value 
+        + "<br> industry :" + document.getElementById("inputIndustry").value 
+        + "<br> phone number :" + document.getElementById("inputPhone").value 
+        + "<br> country :" + document.getElementById("inputCountry").value 
+        + "<br> message :" + document.getElementById("message").value 
+  }).then(
+    show => alert("Form successfully submitted")
+  );
+      }
+    </script> -->
+{{ end }}
+
